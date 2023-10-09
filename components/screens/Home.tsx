@@ -8,7 +8,10 @@ function Home({navigation}) {
     <ImageBackground
       source={backgroundImage}
       style={{
+        justifyContent: 'center',
         flex: 1,
+        width: '100%',
+        backgroundColor: '#142995',
       }}>
       <View
         style={{
