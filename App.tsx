@@ -30,7 +30,8 @@ function App(): JSX.Element {
           name="MyCards"
           component={MyCards}
           options={{
-            headerTitle: 'meus cartões',
+            headerTitle: 'Wallet Test',
+            headerTintColor: '#142995',
           }}
         />
         <Stack.Screen

@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   textInput: {
@@ -36,6 +36,5 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 });
-
 
 export default styles;
