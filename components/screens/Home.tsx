@@ -1,33 +1,7 @@
 import React from 'react';
-import {ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
-
+import {ImageBackground, Pressable, Text, View} from 'react-native';
+import styles from '../styles';
 const backgroundImage = require('./../../assets/background.png');
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 300,
-    paddingVertical: 10,
-    borderRadius: 12,
-  },
-});
 
 function Home({navigation}) {
   return (
@@ -39,17 +13,16 @@ function Home({navigation}) {
       <View
         style={{
           flex: 1,
-          alignItems: 'center',
           justifyContent: 'center',
-          padding: 10,
+          paddingHorizontal: 24,
           gap: 10,
-          ...styles,
         }}>
         <Text
           style={{
             fontSize: 32,
             color: '#ffffff',
             paddingBottom: 12,
+            alignSelf: 'center',
           }}>
           Wallet Test
         </Text>

@@ -26,8 +26,20 @@ function App(): JSX.Element {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="MyCards" component={MyCards} />
-        <Stack.Screen name="InsertCard" component={InsertCard} />
+        <Stack.Screen
+          name="MyCards"
+          component={MyCards}
+          options={{
+            headerTitle: 'meus cartões',
+          }}
+        />
+        <Stack.Screen
+          name="InsertCard"
+          component={InsertCard}
+          options={{
+            headerTitle: 'cadastro',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
