@@ -38,6 +38,8 @@ function App(): JSX.Element {
           component={InsertCard}
           options={{
             headerTitle: 'cadastro',
+            headerTransparent: true,
+            headerTintColor: '#12C2E9',
           }}
         />
       </Stack.Navigator>
