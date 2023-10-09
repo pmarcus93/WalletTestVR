@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
 
+const backgroundImage = require('./../../assets/background.png');
 
 const styles = StyleSheet.create({
   sectionContainer: {
@@ -21,32 +20,76 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 300,
+    paddingVertical: 10,
+    borderRadius: 12,
+  },
 });
 
 function Home({navigation}) {
   return (
-    <View
+    <ImageBackground
+      source={backgroundImage}
       style={{
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...styles,
       }}>
-      <Text>
-        Wallet Test
-      </Text>
-      <Button
-        title="meus cartões"
-        onPress={() => navigation.navigate('MyCards')}
-        accessibilityLabel="botão para navegar à lista de botões cadastrados"
-      />
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 10,
+          gap: 10,
+          ...styles,
+        }}>
+        <Text
+          style={{
+            fontSize: 32,
+            color: '#ffffff',
+            paddingBottom: 12,
+          }}>
+          Wallet Test
+        </Text>
 
-      <Button
-        title="cadastrar cartão"
-        onPress={() => navigation.navigate('InsertCard')}
-        accessibilityLabel="botão para navegar à tela de cadastro de cartão"
-      />
-    </View>
+        <View
+          style={{
+            gap: 20,
+          }}>
+          <Pressable
+            onPress={() => navigation.navigate('MyCards')}
+            style={{
+              ...styles.button,
+              backgroundColor: '#12C2E9',
+            }}>
+            <Text
+              style={{
+                fontSize: 20,
+                color: 'white',
+              }}>
+              meus cartões
+            </Text>
+          </Pressable>
+
+          <Pressable
+            onPress={() => navigation.navigate('InsertCard')}
+            style={{
+              ...styles.button,
+              backgroundColor: '#A5FF32',
+            }}>
+            <Text
+              style={{
+                fontSize: 20,
+                color: '#142995',
+              }}>
+              cadastrar cartão
+            </Text>
+          </Pressable>
+        </View>
+      </View>
+    </ImageBackground>
   );
 }
 
