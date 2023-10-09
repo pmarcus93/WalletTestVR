@@ -19,7 +19,13 @@ function App(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
         <Stack.Screen name="MyCards" component={MyCards} />
         <Stack.Screen name="InsertCard" component={InsertCard} />
       </Stack.Navigator>
