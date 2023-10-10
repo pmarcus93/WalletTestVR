@@ -19,6 +19,7 @@ const sharedStyles = StyleSheet.create({
     color: '#ffffff',
     paddingBottom: 12,
     alignSelf: 'center',
+    fontFamily: 'PT Sans Caption',
   },
   textInput: {
     backgroundColor: '#ffffff',
@@ -27,6 +28,7 @@ const sharedStyles = StyleSheet.create({
     paddingHorizontal: 12,
     width: '100%',
     color: '#000000',
+    fontFamily: 'PT Sans Caption',
   },
   rowContainer: {
     flexDirection: 'row',
@@ -45,7 +47,7 @@ const sharedStyles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: 'red',
     borderWidth: 3,
-  }
+  },
 });
 
 export default sharedStyles;
