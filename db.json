@@ -4,13 +4,25 @@
       "id": "4ec42ba9-50af-40d2-af90-8312edbd9ca2",
       "number": "3529 5435 3355 8727",
       "cvv": "317",
-      "name": "John Doe"
+      "name": "John Doe",
+      "title": "Pink Card",
+      "color": "#FF1493"
     },
     {
       "id": "4ec42ba9-50af-40d2-af90-8312edbd9ca3",
       "number": "3529 5435 3355 8727",
       "cvv": "317",
-      "name": "Maria Joana"
+      "name": "Maria Joana",
+      "title": "Green Card",
+      "color": "#006400"
+    },
+    {
+      "id": "4ec42ba9-50af-40d2-a290-8312edbd9c43",
+      "number": "3529 5435 3355 8727",
+      "cvv": "317",
+      "name": "Gabriel Fonseca",
+      "title": "Blue Card",
+      "color": "#0000FF"
     }
   ]
 }

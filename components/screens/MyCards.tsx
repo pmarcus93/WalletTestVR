@@ -1,29 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
-import axios from 'axios';
+import CreditCardComponent from '../elements/CreditCardComponent';
+import {getCards} from '../api';
+import CreditCard from '../../models/CreditCard';
 
 function MyCards() {
-  const [cardData, setCardData] = useState([]);
+  const [creditCards, setCreditCards] = useState<CreditCard[]>([]);
   const [loading, setLoading] = useState(false);
+  const [selectedCardId, setSelectedCardId] = useState('');
 
   useEffect(() => {
     fetchData();
   }, []); // The empty dependency array ensures this effect runs only once, like componentDidMount
 
-  const fetchData = () => {
+  const fetchData = async () => {
     setLoading(true);
-
-    axios
-      .get('http://10.0.0.108:3000/cards')
-      .then(response => {
-        setCardData(response.data);
-        setLoading(false);
-        console.log(cardData);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error.message);
-        setLoading(false);
-      });
+    const data: CreditCard[] = await getCards();
+    setCreditCards(data);
+    setLoading(false);
   };
 
   return (
@@ -48,13 +42,28 @@ function MyCards() {
           Meus Cartões
         </Text>
       </View>
-      <View>
+      <View
+        style={{
+          paddingHorizontal: 16,
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 10,
+        }}>
         {loading ? (
           <Text>Loading... </Text>
         ) : (
-          cardData.map(item => (
-            <Text key={item.id}>{item.number}</Text>
-          ))
+          creditCards.map(item => {
+            if (item.id !== selectedCardId) {
+              return <CreditCardComponent key={item.id} creditCard={item} />;
+            } else {
+              return (
+                <View key={item.id} style={{backgroundColor: 'red'}}>
+                  <CreditCardComponent creditCard={item} />
+                </View>
+              );
+            }
+          })
         )}
       </View>
     </View>
