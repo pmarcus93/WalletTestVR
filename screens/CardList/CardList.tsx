@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
-import CreditCardComponent from '../elements/CreditCardComponent';
-import {getCards} from '../api';
+import CreditCardComponent from '../../components/elements/CreditCardComponent';
+import {getCards} from '../../components/api';
 import CreditCard from '../../models/CreditCard';
+import styles from './CardListStyles';
 
-function MyCards() {
+function CardList() {
   const [creditCards, setCreditCards] = useState<CreditCard[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedCardId, setSelectedCardId] = useState('');
@@ -21,35 +22,11 @@ function MyCards() {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#142995',
-      }}>
-      <View
-        style={{
-          backgroundColor: '#ffffff',
-          borderBottomLeftRadius: 50,
-          borderBottomRightRadius: 50,
-        }}>
-        <Text
-          style={{
-            alignSelf: 'center',
-            fontSize: 20,
-            padding: 20,
-            color: '#12C2E9',
-          }}>
-          Meus Cartões
-        </Text>
+    <View style={styles.container}>
+      <View style={styles.bottomHeader}>
+        <Text style={styles.textBottomHeader}>Meus Cartões</Text>
       </View>
-      <View
-        style={{
-          paddingHorizontal: 16,
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 10,
-        }}>
+      <View style={styles.cardsList}>
         {loading ? (
           <Text>Loading... </Text>
         ) : (
@@ -70,4 +47,4 @@ function MyCards() {
   );
 }
 
-export default MyCards;
+export default CardList;
