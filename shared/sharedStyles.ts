@@ -19,7 +19,7 @@ const sharedStyles = StyleSheet.create({
     color: '#ffffff',
     paddingBottom: 12,
     alignSelf: 'center',
-    fontFamily: 'PT Sans Caption',
+    fontFamily: 'PTSansCaption-Regular',
   },
   textInput: {
     backgroundColor: '#ffffff',
