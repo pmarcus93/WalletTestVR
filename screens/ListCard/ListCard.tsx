@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import { FlatList, Text, View } from "react-native";
 import CreditCardComponent from '../../components/CreditCard/CreditCardComponent';
 import {getCards} from '../../components/api';
 import CreditCard from '../../models/CreditCard';
@@ -30,17 +30,11 @@ function ListCard() {
         {loading ? (
           <Text>Loading... </Text>
         ) : (
-          creditCards.map(item => {
-            if (item.id !== selectedCardId) {
-              return <CreditCardComponent key={item.id} creditCard={item} />;
-            } else {
-              return (
-                <View key={item.id} style={{backgroundColor: 'red'}}>
-                  <CreditCardComponent creditCard={item} />
-                </View>
-              );
-            }
-          })
+          <FlatList
+            data={creditCards}
+            renderItem={({item}) => <CreditCardComponent creditCard={item} />}
+            keyExtractor={item => item.id}
+          />
         )}
       </View>
     </View>
