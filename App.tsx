@@ -31,6 +31,7 @@ function App(): JSX.Element {
           component={ListCard}
           options={{
             headerTitle: 'Wallet Test',
+            headerTitleAlign: 'center',
             headerTintColor: '#142995',
           }}
         />
@@ -39,6 +40,7 @@ function App(): JSX.Element {
           component={AddCard}
           options={{
             headerTitle: 'cadastro',
+            headerTitleAlign: 'center',
             headerTransparent: true,
             headerTintColor: '#12C2E9',
           }}

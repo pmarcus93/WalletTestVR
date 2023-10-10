@@ -4,6 +4,7 @@ import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 const backgroundImage = require('../../assets/background.png');
 import sharedStyles from '../../shared/sharedStyles';
+import homeStyles from './HomeStyles';
 
 function Home({}) {
   const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
@@ -11,33 +12,11 @@ function Home({}) {
   return (
     <ImageBackground
       source={backgroundImage}
-      style={{
-        justifyContent: 'center',
-        flex: 1,
-        width: '100%',
-        backgroundColor: '#142995',
-      }}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          paddingHorizontal: 24,
-          gap: 10,
-        }}>
-        <Text
-          style={{
-            fontSize: 32,
-            color: '#ffffff',
-            paddingBottom: 12,
-            alignSelf: 'center',
-          }}>
-          Wallet Test
-        </Text>
+      style={sharedStyles.containerFluid}>
+      <View style={{...sharedStyles.container}}>
+        <Text style={sharedStyles.title}>Wallet Test</Text>
 
-        <View
-          style={{
-            gap: 20,
-          }}>
+        <View style={{gap: 20}}>
           <Pressable
             onPress={() => navigate('MyCards')}
             style={{
