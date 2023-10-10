@@ -10,8 +10,8 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './screens/Home/Home';
-import CardList from './screens/CardList/CardList';
-import InsertCard from './components/screens/InsertCard';
+import ListCard from './screens/ListCard/ListCard';
+import AddCard from './screens/AddCard/AddCard';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,7 +28,7 @@ function App(): JSX.Element {
         />
         <Stack.Screen
           name="MyCards"
-          component={CardList}
+          component={ListCard}
           options={{
             headerTitle: 'Wallet Test',
             headerTintColor: '#142995',
@@ -36,7 +36,7 @@ function App(): JSX.Element {
         />
         <Stack.Screen
           name="InsertCard"
-          component={InsertCard}
+          component={AddCard}
           options={{
             headerTitle: 'cadastro',
             headerTransparent: true,

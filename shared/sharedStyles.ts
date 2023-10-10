@@ -1,6 +1,16 @@
 import {StyleSheet} from 'react-native';
 
-const styles = StyleSheet.create({
+const sharedStyles = StyleSheet.create({
+  label: {
+    color: '#BBBBBB',
+    fontSize: 14,
+  },
+  title: {
+    fontSize: 32,
+    color: '#ffffff',
+    paddingBottom: 12,
+    alignSelf: 'center',
+  },
   textInput: {
     backgroundColor: '#ffffff',
     borderRadius: 6,
@@ -9,9 +19,11 @@ const styles = StyleSheet.create({
     width: '100%',
     color: '#000000',
   },
-  label: {
-    color: '#BBBBBB',
-    fontSize: 14,
+  rowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 10,
+    marginTop: 12,
   },
   button: {
     justifyContent: 'center',
@@ -22,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default styles;
+export default sharedStyles;

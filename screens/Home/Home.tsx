@@ -1,9 +1,9 @@
 import React from 'react';
 import {ImageBackground, Pressable, Text, View} from 'react-native';
-import styles from './HomeStyles';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 const backgroundImage = require('../../assets/background.png');
+import sharedStyles from '../../shared/sharedStyles';
 
 function Home({}) {
   const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
@@ -41,7 +41,7 @@ function Home({}) {
           <Pressable
             onPress={() => navigate('MyCards')}
             style={{
-              ...styles.button,
+              ...sharedStyles.button,
               backgroundColor: '#12C2E9',
             }}>
             <Text
@@ -56,7 +56,7 @@ function Home({}) {
           <Pressable
             onPress={() => navigate('InsertCard')}
             style={{
-              ...styles.button,
+              ...sharedStyles.button,
               backgroundColor: '#A5FF32',
             }}>
             <Text

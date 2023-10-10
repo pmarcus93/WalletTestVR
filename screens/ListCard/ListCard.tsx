@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
-import CreditCardComponent from '../../components/elements/CreditCardComponent';
+import CreditCardComponent from '../../components/CreditCard/CreditCardComponent';
 import {getCards} from '../../components/api';
 import CreditCard from '../../models/CreditCard';
-import styles from './CardListStyles';
+import styles from './ListCardStyles';
 
-function CardList() {
+function ListCard() {
   const [creditCards, setCreditCards] = useState<CreditCard[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedCardId, setSelectedCardId] = useState('');
@@ -47,4 +47,4 @@ function CardList() {
   );
 }
 
-export default CardList;
+export default ListCard;

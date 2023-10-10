@@ -9,14 +9,14 @@ import {
   View,
 } from 'react-native';
 
-import styles from '../styles';
-
-const backgroundImage = require('./../../assets/background.png');
+const backgroundImage = require('../../assets/background.png');
 import {MaskedTextInput} from 'react-native-mask-text';
 import CreditCard from '../../models/CreditCard';
-import {insertCard} from '../api';
+import {insertCard} from '../../components/api';
+import styles from './AddCardStyles';
+import sharedStyles from '../../shared/sharedStyles';
 
-function InsertCard() {
+function AddCard() {
   const [creditCard, setCreditCard] = useState<CreditCard>({
     id: '',
     cvv: '',
@@ -47,39 +47,26 @@ function InsertCard() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{
-        flex: 1,
-        backgroundColor: '#142995',
-        justifyContent: 'center',
-        paddingHorizontal: 24,
-      }}>
+      style={styles.container}>
       <ImageBackground source={backgroundImage} resizeMode="cover">
-        <Text
-          style={{
-            fontSize: 32,
-            color: '#ffffff',
-            paddingBottom: 12,
-            alignSelf: 'center',
-          }}>
-          Wallet Test
-        </Text>
+        <Text style={sharedStyles.title}>Wallet Test</Text>
         <View style={{gap: 10}}>
-          <Text style={styles.label}>número do cartão</Text>
+          <Text style={sharedStyles.label}>número do cartão</Text>
           <MaskedTextInput
             onChangeText={(text, rawText) => {
               handleChange('number', text);
             }}
             mask="9999 9999 9999 9999"
-            style={styles.textInput}
+            style={sharedStyles.textInput}
             placeholder="1234 5678 9012 3456"
             placeholderTextColor="#BBBBBB"
             keyboardType="numeric"
             autoCorrect={false}
             value={creditCard.number}
           />
-          <Text style={styles.label}>nome do titular do cartão</Text>
+          <Text style={sharedStyles.label}>nome do titular do cartão</Text>
           <TextInput
-            style={styles.textInput}
+            style={sharedStyles.textInput}
             placeholder="JOSÉ A PEREIRA"
             placeholderTextColor="#BBBBBB"
             onChangeText={text => {
@@ -88,41 +75,37 @@ function InsertCard() {
             value={creditCard.name}
           />
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            gap: 10,
-            marginTop: 12,
-          }}>
+        <View style={sharedStyles.rowContainer}>
           <View
             style={{
               borderStyle: 'solid',
               flex: 1,
               flexWrap: 'nowrap',
             }}>
-            <Text style={{...styles.label, marginBottom: 6}}>vencimento</Text>
+            <Text style={{...sharedStyles.label, marginBottom: 6}}>
+              vencimento
+            </Text>
             <MaskedTextInput
-              onChangeText={(text, rawText) => {
+              onChangeText={text => {
                 handleChange('expirationDate', text);
               }}
               mask="99/99"
-              style={styles.textInput}
+              style={sharedStyles.textInput}
               placeholder="04/29"
               placeholderTextColor="#BBBBBB"
               keyboardType="numeric"
             />
           </View>
           <View style={{flex: 1}}>
-            <Text style={{...styles.label, marginBottom: 6}}>
+            <Text style={{...sharedStyles.label, marginBottom: 6}}>
               código de segurança
             </Text>
             <MaskedTextInput
-              onChangeText={(text, rawText) => {
+              onChangeText={text => {
                 handleChange('cvv', text);
               }}
               mask="999"
-              style={styles.textInput}
+              style={sharedStyles.textInput}
               placeholder="***"
               placeholderTextColor="#BBBBBB"
               keyboardType="numeric"
@@ -144,7 +127,7 @@ function InsertCard() {
               insertCard(creditCard);
             }}
             style={{
-              ...styles.button,
+              ...sharedStyles.button,
               backgroundColor: '#12C2E9',
             }}>
             <Text style={{fontSize: 20, color: 'white'}}>avançar</Text>
@@ -155,4 +138,4 @@ function InsertCard() {
   );
 }
 
-export default InsertCard;
+export default AddCard;
