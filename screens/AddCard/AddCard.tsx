@@ -45,15 +45,18 @@ function AddCard() {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}>
-      <ImageBackground source={backgroundImage} resizeMode="cover">
+    <ImageBackground
+      source={backgroundImage}
+      resizeMode="cover"
+      style={sharedStyles.containerFluid}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={sharedStyles.container}>
         <Text style={sharedStyles.title}>Wallet Test</Text>
         <View style={{gap: 10}}>
           <Text style={sharedStyles.label}>número do cartão</Text>
           <MaskedTextInput
-            onChangeText={(text, rawText) => {
+            onChangeText={text => {
               handleChange('number', text);
             }}
             mask="9999 9999 9999 9999"
@@ -133,8 +136,8 @@ function AddCard() {
             <Text style={{fontSize: 20, color: 'white'}}>avançar</Text>
           </Pressable>
         </View>
-      </ImageBackground>
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </ImageBackground>
   );
 }
 
