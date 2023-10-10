@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 import {
   ImageBackground,
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  SafeAreaView,
   Text,
   TextInput,
   View,
@@ -14,13 +13,36 @@ import styles from '../styles';
 
 const backgroundImage = require('./../../assets/background.png');
 import {MaskedTextInput} from 'react-native-mask-text';
+import CreditCard from '../../models/CreditCard';
+import {insertCard} from '../api';
 
 function InsertCard() {
+  const [creditCard, setCreditCard] = useState<CreditCard>({
+    id: '',
+    cvv: '',
+    color: '',
+    number: '',
+    name: '',
+    title: '',
+    expirationDate: '',
+  });
 
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardHolder, setCardHolder] = useState('');
-  const [cardExpireDate, setCardExpireDate] = useState('');
-  const [cardSecurityNumber, setCardSecurityNumber] = useState('');
+  const getRandomHexColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+
+  const handleChange = (key: keyof CreditCard, value: String) => {
+    setCreditCard({
+      ...creditCard,
+      [key]: value,
+    });
+    console.log(creditCard);
+  };
 
   return (
     <KeyboardAvoidingView
@@ -41,14 +63,11 @@ function InsertCard() {
           }}>
           Wallet Test
         </Text>
-
         <View style={{gap: 10}}>
           <Text style={styles.label}>número do cartão</Text>
           <MaskedTextInput
             onChangeText={(text, rawText) => {
-              setCardNumber(text);
-              console.log(text);
-              console.log(rawText);
+              handleChange('number', text);
             }}
             mask="9999 9999 9999 9999"
             style={styles.textInput}
@@ -56,14 +75,17 @@ function InsertCard() {
             placeholderTextColor="#BBBBBB"
             keyboardType="numeric"
             autoCorrect={false}
-            value={cardNumber}
+            value={creditCard.number}
           />
           <Text style={styles.label}>nome do titular do cartão</Text>
           <TextInput
             style={styles.textInput}
             placeholder="JOSÉ A PEREIRA"
             placeholderTextColor="#BBBBBB"
-            onChangeText={text => text.toUpperCase()}
+            onChangeText={text => {
+              handleChange('name', text);
+            }}
+            value={creditCard.name}
           />
         </View>
         <View
@@ -82,8 +104,7 @@ function InsertCard() {
             <Text style={{...styles.label, marginBottom: 6}}>vencimento</Text>
             <MaskedTextInput
               onChangeText={(text, rawText) => {
-                console.log(text);
-                console.log(rawText);
+                handleChange('expirationDate', text);
               }}
               mask="99/99"
               style={styles.textInput}
@@ -98,8 +119,7 @@ function InsertCard() {
             </Text>
             <MaskedTextInput
               onChangeText={(text, rawText) => {
-                console.log(text);
-                console.log(rawText);
+                handleChange('cvv', text);
               }}
               mask="999"
               style={styles.textInput}
@@ -114,7 +134,15 @@ function InsertCard() {
         </View>
         <View style={{marginTop: 18}}>
           <Pressable
-            onPress={() => console.log('Oi')}
+            onPress={() => {
+              const randomHexColor = getRandomHexColor();
+              setCreditCard({
+                ...creditCard,
+                color: randomHexColor,
+                title: 'Card #' + randomHexColor,
+              });
+              insertCard(creditCard);
+            }}
             style={{
               ...styles.button,
               backgroundColor: '#12C2E9',

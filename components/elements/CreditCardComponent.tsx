@@ -33,7 +33,7 @@ const CreditCardComponent: React.FC<Props> = ({creditCard}) => {
       <Text style={{fontSize: 18, marginBottom: 12}}>{creditCard.title}</Text>
       <Text>{creditCard.name}</Text>
       <Text>{creditCard.number}</Text>
-      <Text>Validade: 11/28{creditCard.expirationDate}</Text>
+      <Text>Validade: {creditCard.expirationDate}</Text>
     </Pressable>
   );
 };

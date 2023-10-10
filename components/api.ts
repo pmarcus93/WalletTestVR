@@ -15,3 +15,19 @@ export const getCards = async (): Promise<CreditCard[]> => {
     throw error;
   }
 };
+
+export const insertCard = async (
+  creditCard: CreditCard,
+): Promise<AxiosResponse<CreditCard>> => {
+  try {
+    const response: AxiosResponse<CreditCard> = await axios.post(
+      `${API_BASE_URL}/cards`,
+      creditCard,
+    );
+    console.log('Credit card inserted successfully:', response.data);
+    return response;
+  } catch (error) {
+    console.error('Error inserting credit card:', error);
+    throw error;
+  }
+};
