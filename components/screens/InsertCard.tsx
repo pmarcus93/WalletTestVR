@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import {
   ImageBackground,
   KeyboardAvoidingView,
@@ -16,6 +16,12 @@ const backgroundImage = require('./../../assets/background.png');
 import {MaskedTextInput} from 'react-native-mask-text';
 
 function InsertCard() {
+
+  const [cardNumber, setCardNumber] = useState('');
+  const [cardHolder, setCardHolder] = useState('');
+  const [cardExpireDate, setCardExpireDate] = useState('');
+  const [cardSecurityNumber, setCardSecurityNumber] = useState('');
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -25,8 +31,7 @@ function InsertCard() {
         justifyContent: 'center',
         paddingHorizontal: 24,
       }}>
-      <ImageBackground source={backgroundImage}
-         resizeMode="cover">
+      <ImageBackground source={backgroundImage} resizeMode="cover">
         <Text
           style={{
             fontSize: 32,
@@ -41,6 +46,7 @@ function InsertCard() {
           <Text style={styles.label}>número do cartão</Text>
           <MaskedTextInput
             onChangeText={(text, rawText) => {
+              setCardNumber(text);
               console.log(text);
               console.log(rawText);
             }}
@@ -50,6 +56,7 @@ function InsertCard() {
             placeholderTextColor="#BBBBBB"
             keyboardType="numeric"
             autoCorrect={false}
+            value={cardNumber}
           />
           <Text style={styles.label}>nome do titular do cartão</Text>
           <TextInput
