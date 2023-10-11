@@ -5,6 +5,7 @@ import {Pressable, Text, TextInput, View} from 'react-native';
 import sharedStyles from '../../shared/sharedStyles';
 import {MaskedTextInput} from 'react-native-mask-text';
 import VALIDATION_REGEXES from '../../shared/helpers';
+import {insertCard} from '../../components/api';
 
 function FormCard() {
   const {
@@ -12,9 +13,11 @@ function FormCard() {
     handleSubmit,
     formState: {errors},
   } = useForm<CreditCard>();
-  const onSubmit = (data: CreditCard) => {
+  const onSubmit = async (data: CreditCard) => {
     data.color = '#ffffff';
     console.log(typeof data);
+    const retorno = await insertCard(data);
+    console.log(retorno);
   };
   return (
     <View style={{gap: 10}}>
