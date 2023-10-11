@@ -4,6 +4,7 @@ import CreditCard from '../../models/CreditCard';
 import {Pressable, Text, TextInput, View} from 'react-native';
 import sharedStyles from '../../shared/sharedStyles';
 import {MaskedTextInput} from 'react-native-mask-text';
+import VALIDATION_REGEXES from '../../shared/helpers';
 
 function FormCard() {
   const {
@@ -15,7 +16,6 @@ function FormCard() {
     data.color = '#ffffff';
     console.log(typeof data);
   };
-
   return (
     <View style={{gap: 10}}>
       <Text style={sharedStyles.label}>número do cartão</Text>
@@ -24,6 +24,7 @@ function FormCard() {
         name="number"
         rules={{
           required: true,
+          pattern: VALIDATION_REGEXES.CREDIT_CARD_NUMBER,
         }}
         render={({field: {onChange, onBlur, value}}) => (
           <MaskedTextInput
@@ -77,6 +78,7 @@ function FormCard() {
             control={control}
             rules={{
               required: true,
+              pattern: VALIDATION_REGEXES.CREDIT_CARD_EXPIRATION_DATE,
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <MaskedTextInput
