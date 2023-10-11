@@ -13,10 +13,11 @@ const backgroundImage = require('../../assets/background.png');
 import {MaskedTextInput} from 'react-native-mask-text';
 import CreditCard from '../../models/CreditCard';
 import {insertCard} from '../../components/api';
-import styles from './AddCardStyles';
 import sharedStyles from '../../shared/sharedStyles';
+import FormCard from '../FormCard/FormCard';
 
 function AddCard() {
+
   const [creditCard, setCreditCard] = useState<CreditCard>({
     id: '',
     cvv: '',
@@ -44,6 +45,7 @@ function AddCard() {
     console.log(creditCard);
   };
 
+  /*
   return (
     <ImageBackground
       source={backgroundImage}
@@ -136,6 +138,21 @@ function AddCard() {
             <Text style={{fontSize: 20, color: 'white'}}>avançar</Text>
           </Pressable>
         </View>
+      </KeyboardAvoidingView>
+    </ImageBackground>
+  );
+  */
+
+  return (
+    <ImageBackground
+      source={backgroundImage}
+      resizeMode="cover"
+      style={sharedStyles.containerFluid}>
+      <Text style={sharedStyles.title}>Wallet Test</Text>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={sharedStyles.container}>
+        <FormCard />
       </KeyboardAvoidingView>
     </ImageBackground>
   );

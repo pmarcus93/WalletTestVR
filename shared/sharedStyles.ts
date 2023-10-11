@@ -34,13 +34,12 @@ const sharedStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: 10,
-    marginTop: 12,
   },
   button: {
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 10,
-    borderRadius: 12,
+    borderRadius: 6,
     width: '100%',
   },
   debug: {
