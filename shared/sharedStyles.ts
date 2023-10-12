@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
+import {COLORS, FONTS} from './defaults';
 
 const sharedStyles = StyleSheet.create({
   containerFluid: {
     flex: 1,
     width: '100%',
     justifyContent: 'center',
-    backgroundColor: '#142995',
+    backgroundColor: COLORS.mainDarkBlue,
   },
   container: {
     marginHorizontal: 18,
@@ -13,23 +14,23 @@ const sharedStyles = StyleSheet.create({
     gap: 10,
   },
   label: {
-    color: '#BBBBBB',
+    color: COLORS.label,
     fontSize: 14,
   },
   title: {
     fontSize: 32,
-    color: '#ffffff',
+    color: COLORS.text,
     alignSelf: 'center',
-    fontFamily: 'PT Sans Caption',
+    fontFamily: FONTS.fontFamily,
   },
   textInput: {
-    backgroundColor: '#ffffff',
+    backgroundColor: COLORS.text,
     borderRadius: 6,
     paddingVertical: 12,
     paddingHorizontal: 12,
     height: 50,
     color: '#000000',
-    fontFamily: 'PT Sans Caption',
+    fontFamily: FONTS.fontFamily,
   },
   rowContainer: {
     flexDirection: 'row',

@@ -12,6 +12,7 @@ import CreditCardComponent from '../../components/CreditCard/CreditCardComponent
 import {RouteProp} from '@react-navigation/native';
 import CreditCard from '../../models/CreditCard';
 import NavigationButton from '../../components/NavigationButton/NavigationButton';
+import { FONTS } from "../../shared/defaults";
 const backgroundImage = require('../../assets/background.png');
 
 type CardInsertedRouteProp = RouteProp<
@@ -24,7 +25,7 @@ interface CardInsertedProps {
 
 const styles = StyleSheet.create({
   subtitle: {
-    fontFamily: 'PT Sans Caption',
+    fontFamily: FONTS.fontFamily,
     color: '#ffffff',
     fontSize: 20,
     marginBottom: 12,

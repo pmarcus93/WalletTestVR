@@ -7,6 +7,7 @@ import {MaskedTextInput} from 'react-native-mask-text';
 import {getRandomColor, VALIDATION_REGEXES} from '../../shared/helpers';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { COLORS } from "../../shared/defaults";
 
 function FormCard() {
   const {
@@ -42,7 +43,7 @@ function FormCard() {
             mask="9999 9999 9999 9999"
             style={sharedStyles.textInput}
             placeholder="1234 5678 9012 3456"
-            placeholderTextColor="#BBBBBB"
+            placeholderTextColor={COLORS.placeholder}
             keyboardType="numeric"
             autoCorrect={false}
             onBlur={onBlur}
