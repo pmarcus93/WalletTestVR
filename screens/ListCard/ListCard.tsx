@@ -8,7 +8,6 @@ import styles from './ListCardStyles';
 function ListCard() {
   const [creditCards, setCreditCards] = useState<CreditCard[]>([]);
   const [loading, setLoading] = useState(false);
-  const [selectedCardId, setSelectedCardId] = useState('');
 
   useEffect(() => {
     fetchData();

@@ -9,6 +9,8 @@ const sharedStyles = StyleSheet.create({
   },
   container: {
     marginHorizontal: 18,
+    alignItems: 'center',
+    gap: 10,
   },
   label: {
     color: '#BBBBBB',
@@ -17,16 +19,15 @@ const sharedStyles = StyleSheet.create({
   title: {
     fontSize: 32,
     color: '#ffffff',
-    paddingBottom: 12,
     alignSelf: 'center',
-    fontFamily: 'PTSansCaption-Regular',
+    fontFamily: 'PT Sans Caption',
   },
   textInput: {
     backgroundColor: '#ffffff',
     borderRadius: 6,
     paddingVertical: 12,
     paddingHorizontal: 12,
-    width: '100%',
+    height: 50,
     color: '#000000',
     fontFamily: 'PT Sans Caption',
   },
@@ -40,7 +41,8 @@ const sharedStyles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
     borderRadius: 6,
-    width: '100%',
+    width: 300,
+    height: 55,
   },
   debug: {
     borderStyle: 'solid',

@@ -11,11 +11,20 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     borderRadius: 16,
-    marginTop: -110,
-    borderColor: 'red',
-    borderStyle: 'solid',
     borderWidth: 1,
+    gap: 3,
+  },
+  cardTitle: {
+    fontSize: 18,
     color: '#ffffff',
+    marginBottom: 12,
+  },
+  text: {
+    fontSize: 14,
+    color: '#ffffff',
+  },
+  container: {
+    gap: 5,
   },
 });
 
@@ -30,10 +39,10 @@ const CreditCardComponent: React.FC<Props> = ({creditCard}) => {
         console.log('clicado no cartão: ' + creditCard.title);
       }}
       style={[styles.creditCard, {backgroundColor: creditCard.color}]}>
-      <Text style={{fontSize: 18, marginBottom: 12}}>{creditCard.title}</Text>
-      <Text>{creditCard.name}</Text>
-      <Text>{creditCard.number}</Text>
-      <Text>Validade: {creditCard.expirationDate}</Text>
+      <Text style={styles.cardTitle}>{creditCard.title}</Text>
+      <Text style={styles.text}>{creditCard.name}</Text>
+      <Text style={styles.text}>{creditCard.number}</Text>
+      <Text style={styles.text}>Validade: {creditCard.expirationDate}</Text>
     </Pressable>
   );
 };

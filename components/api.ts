@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from 'axios';
 import CreditCard from '../models/CreditCard';
 
-const API_BASE_URL: string = 'http://10.0.0.103:3000';
+const API_BASE_URL: string = 'http://192.168.1.7:3000';
 export const getCards = async (): Promise<CreditCard[]> => {
   try {
     const response: AxiosResponse<CreditCard[]> = await axios.get(

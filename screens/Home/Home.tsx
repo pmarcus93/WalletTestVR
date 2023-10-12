@@ -22,7 +22,7 @@ function Home({}) {
             backgroundColor={'#A5FF32'}
             textColor={'#142995'}
             text={'cadastrar cartão'}
-            navigateTo={'InsertCard'}
+            navigateTo={'CardInsertion'}
           />
         </View>
       </View>
