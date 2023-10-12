@@ -3,7 +3,7 @@ import {
   ImageBackground,
   KeyboardAvoidingView,
   Platform,
-  Pressable,
+  StyleSheet,
   Text,
   View,
 } from 'react-native';
@@ -22,6 +22,15 @@ interface CardInsertedProps {
   route: CardInsertedRouteProp;
 }
 
+const styles = StyleSheet.create({
+  subtitle: {
+    fontFamily: 'PT Sans Caption',
+    color: '#ffffff',
+    fontSize: 20,
+    marginBottom: 12,
+  },
+});
+
 function CardInserted({route}: CardInsertedProps) {
   const {creditCard} = route.params;
 
@@ -35,7 +44,7 @@ function CardInserted({route}: CardInsertedProps) {
         style={sharedStyles.container}>
         <View style={sharedStyles.container}>
           <Text style={sharedStyles.title}>Wallet Test</Text>
-          <Text>cartão inserido com sucesso!</Text>
+          <Text style={styles.subtitle}>cartão cadastrado com sucesso!</Text>
           <CreditCardComponent creditCard={creditCard} />
         </View>
         <NavigationButton

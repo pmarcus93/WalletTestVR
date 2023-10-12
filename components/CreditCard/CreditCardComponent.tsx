@@ -41,7 +41,9 @@ const CreditCardComponent: React.FC<Props> = ({creditCard}) => {
       style={[styles.creditCard, {backgroundColor: creditCard.color}]}>
       <Text style={styles.cardTitle}>{creditCard.title}</Text>
       <Text style={styles.text}>{creditCard.name}</Text>
-      <Text style={styles.text}>{creditCard.number}</Text>
+      <Text style={styles.text}>
+        **** **** **** *{creditCard.number.slice(-3)}
+      </Text>
       <Text style={styles.text}>Validade: {creditCard.expirationDate}</Text>
     </Pressable>
   );

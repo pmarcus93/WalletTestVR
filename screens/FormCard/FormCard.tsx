@@ -4,7 +4,7 @@ import CreditCard from '../../models/CreditCard';
 import {Pressable, Text, TextInput, View} from 'react-native';
 import sharedStyles from '../../shared/sharedStyles';
 import {MaskedTextInput} from 'react-native-mask-text';
-import VALIDATION_REGEXES from '../../shared/helpers';
+import {getRandomColor, VALIDATION_REGEXES} from '../../shared/helpers';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
@@ -19,7 +19,9 @@ function FormCard() {
 
   const onSubmit = async (data: CreditCard) => {
     //TODO: atribuir dinamicamente cor e título para o cartão.
-    data.color = '#000000';
+    const {color, colorName} = getRandomColor();
+    data.color = color;
+    data.title = 'Cartão ' + colorName;
     navigate('CardInserted', {
       creditCard: data,
     });
@@ -114,11 +116,9 @@ function FormCard() {
           <Controller
             name="cvv"
             control={control}
-            rules={
-              {
-                required: true,
-              }
-            }
+            rules={{
+              required: true,
+            }}
             render={({field: {onChange, onBlur, value}}) => (
               <MaskedTextInput
                 onChangeText={onChange}
