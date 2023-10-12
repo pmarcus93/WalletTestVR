@@ -8,6 +8,7 @@ import {getRandomColor, VALIDATION_REGEXES} from '../../shared/helpers';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import { COLORS } from "../../shared/defaults";
+import { insertCard } from "../../components/api";
 
 function FormCard() {
   const {
@@ -19,14 +20,15 @@ function FormCard() {
   const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   const onSubmit = async (data: CreditCard) => {
-    //TODO: atribuir dinamicamente cor e título para o cartão.
     const {color, colorName} = getRandomColor();
     data.color = color;
     data.title = 'Cartão ' + colorName;
+    await insertCard(data);
     navigate('CardInserted', {
       creditCard: data,
     });
   };
+
   return (
     <View style={[{gap: 10}]}>
       <Text style={sharedStyles.title}>Wallet Test</Text>
