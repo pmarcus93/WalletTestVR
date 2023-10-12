@@ -1,14 +1,13 @@
 import React from 'react';
-import {useForm, Controller} from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import CreditCard from '../../models/CreditCard';
-import {Pressable, Text, TextInput, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import sharedStyles from '../../shared/sharedStyles';
-import {MaskedTextInput} from 'react-native-mask-text';
 import {getRandomColor, VALIDATION_REGEXES} from '../../shared/helpers';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import { COLORS } from "../../shared/defaults";
-import { insertCard } from "../../components/api";
+import {insertCard} from '../../components/api';
+import FormControlInput from '../../components/FormControlInput/FormControlInput';
 
 function FormCard() {
   const {
@@ -32,50 +31,31 @@ function FormCard() {
   return (
     <View style={[{gap: 10}]}>
       <Text style={sharedStyles.title}>Wallet Test</Text>
-      <Text style={sharedStyles.label}>número do cartão</Text>
-      <Controller
+      <FormControlInput
         control={control}
+        errors={errors}
+        label={'número do cartão'}
         name="number"
+        placeholder="1234 5678 9012 3456"
+        mask="9999 9999 9999 9999"
         rules={{
-          required: true,
           pattern: VALIDATION_REGEXES.CREDIT_CARD_NUMBER,
-        }}
-        render={({field: {onChange, onBlur, value}}) => (
-          <MaskedTextInput
-            mask="9999 9999 9999 9999"
-            style={sharedStyles.textInput}
-            placeholder="1234 5678 9012 3456"
-            placeholderTextColor={COLORS.placeholder}
-            keyboardType="numeric"
-            autoCorrect={false}
-            onBlur={onBlur}
-            value={value}
-            onChangeText={onChange}
-          />
-        )}
-      />
-      {errors.number && <Text>Campo obrigatório.</Text>}
-
-      <Text style={sharedStyles.label}>nome do titular do cartão</Text>
-      <Controller
-        name="name"
-        control={control}
-        rules={{
           required: true,
         }}
-        render={({field: {onChange, onBlur, value}}) => (
-          <TextInput
-            style={sharedStyles.textInput}
-            placeholder="JOSÉ A PEREIRA"
-            placeholderTextColor="#BBBBBB"
-            onBlur={onBlur}
-            value={value}
-            onChangeText={onChange}
-          />
-        )}
+        keyboardType="numeric"
       />
 
-      {errors.name && <Text>Campo obrigatório.</Text>}
+      <FormControlInput
+        control={control}
+        errors={errors}
+        label="nome do titular do cartão"
+        name="name"
+        placeholder="JOSÉ A PEREIRA"
+        rules={{required: true}}
+        keyboardType="default"
+        mask={undefined}
+      />
+
       <View style={sharedStyles.rowContainer}>
         <View
           style={{
@@ -83,62 +63,34 @@ function FormCard() {
             flex: 1,
             flexWrap: 'nowrap',
           }}>
-          <Text style={{...sharedStyles.label, marginBottom: 6}}>
-            vencimento
-          </Text>
-
-          <Controller
-            name="expirationDate"
+          <FormControlInput
             control={control}
+            errors={errors}
+            label="vencimento"
+            name="expirationDate"
+            keyboardType="numeric"
             rules={{
-              required: true,
               pattern: VALIDATION_REGEXES.CREDIT_CARD_EXPIRATION_DATE,
+              required: true,
             }}
-            render={({field: {onChange, onBlur, value}}) => (
-              <MaskedTextInput
-                onChangeText={onChange}
-                onBlur={onBlur}
-                value={value}
-                mask="99/99"
-                style={sharedStyles.textInput}
-                placeholder="04/29"
-                placeholderTextColor="#BBBBBB"
-                keyboardType="numeric"
-              />
-            )}
+            placeholder="04/29"
+            mask="99/99"
           />
-
-          {errors.expirationDate && <Text>Campo obrigatório.</Text>}
         </View>
 
         <View style={{flex: 1}}>
-          <Text style={{...sharedStyles.label, marginBottom: 6}}>
-            código de segurança
-          </Text>
-
-          <Controller
-            name="cvv"
+          <FormControlInput
             control={control}
+            errors={errors}
+            label="código de segurança"
+            mask="999"
+            name="cvv"
+            placeholder="***"
             rules={{
               required: true,
             }}
-            render={({field: {onChange, onBlur, value}}) => (
-              <MaskedTextInput
-                onChangeText={onChange}
-                onBlur={onBlur}
-                value={value}
-                mask="999"
-                style={sharedStyles.textInput}
-                placeholder="***"
-                placeholderTextColor="#BBBBBB"
-                keyboardType="numeric"
-                secureTextEntry={true}
-                returnKeyType="next"
-                enablesReturnKeyAutomatically={true}
-              />
-            )}
+            secureTextEntry={true}
           />
-          {errors.cvv && <Text>Campo obrigatório.</Text>}
         </View>
       </View>
 
