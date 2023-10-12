@@ -7,22 +7,13 @@
 
 import React from 'react';
 
-import {
-  NavigationContainer,
-  ParamListBase,
-  useNavigation,
-} from '@react-navigation/native';
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-} from '@react-navigation/native-stack';
-import Home from './screens/Home/Home';
-import ListCard from './screens/ListCard/ListCard';
-import AddCard from './screens/AddCard/AddCard';
-import CardInserted from './screens/CardInserted/CardInserted';
-import {Button} from 'react-native';
-import {COLORS} from './shared/defaults';
-import AddCardButton from "./components/AddCardButton/AddCardButton";
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Home from '@screens/Home';
+import ListCard from '@screens/ListCard';
+import AddCard from '@screens/AddCard';
+import CardInserted from '@screens/CardInserted';
+import AddCardButton from './components/AddCardButton/AddCardButton';
 
 const Stack = createNativeStackNavigator();
 
@@ -78,9 +69,7 @@ function App(): JSX.Element {
             headerTitle: 'Wallet Test',
             headerTitleAlign: 'center',
             headerTintColor: '#142995',
-            headerRight: () => (
-              <AddCardButton />
-            ),
+            headerRight: () => <AddCardButton />,
           }}
         />
       </Stack.Navigator>

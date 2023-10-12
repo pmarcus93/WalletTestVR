@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  ImageBackground,
-  KeyboardAvoidingView,
-  Platform,
-  Text,
-} from 'react-native';
+import {ImageBackground, KeyboardAvoidingView, Platform} from 'react-native';
 
 const backgroundImage = require('../../assets/background.png');
 import sharedStyles from '../../shared/sharedStyles';
