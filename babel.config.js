@@ -11,6 +11,7 @@ module.exports = {
           '@models': './src/models/',
           '@screens': './src/screens/',
           '@shared': './src/shared/',
+          '@transformations': './src/transformations/',
         },
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         root: ['.'],

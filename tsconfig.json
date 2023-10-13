@@ -9,6 +9,7 @@
       "@models/*": ["src/models/*"],
       "@api/*": ["src/api/*"],
       "@shared/*": ["src/shared/*"],
+      "@transformations/*": ["src/transformations/*"]
     },
   }
 }
