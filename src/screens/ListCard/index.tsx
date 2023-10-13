@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, Text, View} from 'react-native';
-import CreditCardComponent from '@components/CreditCard';
-import {getCards} from '@api/CreditCardApi';
-import CreditCardModel from '@models/CreditCardModel';
+
 import styles from './styles';
+
+import {getCards} from '@api/CreditCardApi';
+
+import CreditCardModel from '@models/CreditCardModel';
+
+import CreditCardComponent from '@components/CreditCard';
 
 function ListCard() {
   const [creditCards, setCreditCards] = useState<CreditCardModel[]>([]);

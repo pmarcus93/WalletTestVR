@@ -1,11 +1,11 @@
 interface CreditCardModel {
-  id: string;
-  number: string;
-  cvv: string;
-  name: string;
-  title: string;
   color: string;
+  cvv: string;
   expirationDate?: string;
+  id: string;
+  name: string;
+  number: string;
+  title: string;
 }
 
 export default CreditCardModel;

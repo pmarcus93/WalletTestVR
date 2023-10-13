@@ -1,11 +1,10 @@
 import React from 'react';
 import {ImageBackground, KeyboardAvoidingView, Platform} from 'react-native';
 
-import globalStyles from '@shared/globalStyles';
+import globalStyles from '../../shared/globalStyles';
+import FormCard from '../FormCard';
 
-import FormCard from '@screens/FormCard';
-
-const backgroundImage = require('../../assets/background.png');
+const backgroundImage = require('../../../assets/background.png');
 
 function AddCard() {
   return (

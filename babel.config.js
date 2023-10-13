@@ -6,11 +6,11 @@ module.exports = {
       'module-resolver',
       {
         alias: {
-          '@api': './api/',
-          '@components': './components/',
-          '@models': './models/',
-          '@screens': './screens/',
-          '@shared': './shared/',
+          '@api': './src/api/',
+          '@components': './src/components/',
+          '@models': './src/models/',
+          '@screens': './src/screens/',
+          '@shared': './src/shared/',
         },
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         root: ['.'],

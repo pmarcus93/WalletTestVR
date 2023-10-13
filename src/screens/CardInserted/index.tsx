@@ -8,16 +8,16 @@ import {
   View,
 } from 'react-native';
 
-import CreditCardModel from '../../models/CreditCardModel';
-
 import {RouteProp} from '@react-navigation/native';
+
+import CreditCardModel from '@models/CreditCardModel';
 
 import {FONTS} from '@shared/defaults';
 import globalStyles from '@shared/globalStyles';
 
 import CreditCardComponent from '@components/CreditCard';
 import NavigationButton from '@components/NavigationButton';
-const backgroundImage = require('../../assets/background.png');
+const backgroundImage = require('../../../assets/background.png');
 
 type CardInsertedRouteProp = RouteProp<
   {CardInserted: {creditCard: CreditCardModel}},
