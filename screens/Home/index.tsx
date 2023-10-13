@@ -2,7 +2,7 @@ import React from 'react';
 import {ImageBackground, Text, View} from 'react-native';
 const backgroundImage = require('../../assets/background.png');
 import sharedStyles from '../../shared/sharedStyles';
-import NavigationButton from '../../components/NavigationButton/NavigationButton';
+import NavigationButton from '@components/NavigationButton';
 
 function Home({}) {
   return (

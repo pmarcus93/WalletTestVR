@@ -7,7 +7,7 @@ import {getRandomColor, VALIDATION_REGEXES} from '../../shared/helpers';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {insertCard} from '../../components/api';
-import FormControlInput from '../../components/FormControlInput/FormControlInput';
+import FormControlInput from '@components/FormControlInput';
 
 function FormCard() {
   const {

@@ -8,10 +8,10 @@ import {
   View,
 } from 'react-native';
 import sharedStyles from '../../shared/sharedStyles';
-import CreditCardComponent from '../../components/CreditCard/CreditCardComponent';
+import CreditCardComponent from '@components/CreditCard';
 import {RouteProp} from '@react-navigation/native';
 import CreditCard from '../../models/CreditCard';
-import NavigationButton from '../../components/NavigationButton/NavigationButton';
+import NavigationButton from '@components/NavigationButton';
 import { FONTS } from "../../shared/defaults";
 const backgroundImage = require('../../assets/background.png');
 

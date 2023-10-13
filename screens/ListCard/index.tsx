@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, Text, View} from 'react-native';
-import CreditCardComponent from '../../components/CreditCard/CreditCardComponent';
+import CreditCardComponent from '@components/CreditCard';
 import {getCards} from '../../components/api';
 import CreditCard from '../../models/CreditCard';
 import styles from './styles';
@@ -11,7 +11,7 @@ function ListCard() {
 
   useEffect(() => {
     fetchData();
-  }, []); // The empty dependency array ensures this effect runs only once, like componentDidMount
+  }, []);
 
   const fetchData = async () => {
     setLoading(true);
