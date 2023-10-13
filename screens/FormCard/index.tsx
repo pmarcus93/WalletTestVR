@@ -1,19 +1,25 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
-import CreditCardModel from '../../models/CreditCardModel';
 import {Pressable, Text, View} from 'react-native';
-import sharedStyles from '../../shared/sharedStyles';
-import {getRandomColor, VALIDATION_REGEXES} from '../../shared/helpers';
+
+import {useForm} from 'react-hook-form';
+
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
 import {insertCard} from '@api/CreditCardApi';
+
+import CreditCardModel from '@models/CreditCardModel';
+
+import globalStyles from '@shared/globalStyles';
+import {VALIDATION_REGEXES, getRandomColor} from '@shared/helpers';
+
 import FormControlInput from '@components/FormControlInput';
 
 function FormCard() {
   const {
     control,
-    handleSubmit,
     formState: {errors},
+    handleSubmit,
   } = useForm<CreditCardModel>();
 
   const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
@@ -30,33 +36,33 @@ function FormCard() {
 
   return (
     <View style={[{gap: 10}]}>
-      <Text style={sharedStyles.title}>Wallet Test</Text>
+      <Text style={globalStyles.title}>Wallet Test</Text>
       <FormControlInput
         control={control}
         errors={errors}
+        keyboardType="numeric"
         label={'número do cartão'}
+        mask="9999 9999 9999 9999"
         name="number"
         placeholder="1234 5678 9012 3456"
-        mask="9999 9999 9999 9999"
         rules={{
           pattern: VALIDATION_REGEXES.CREDIT_CARD_NUMBER,
           required: true,
         }}
-        keyboardType="numeric"
       />
 
       <FormControlInput
         control={control}
         errors={errors}
+        keyboardType="default"
         label="nome do titular do cartão"
+        mask={undefined}
         name="name"
         placeholder="JOSÉ A PEREIRA"
         rules={{required: true}}
-        keyboardType="default"
-        mask={undefined}
       />
 
-      <View style={sharedStyles.rowContainer}>
+      <View style={globalStyles.rowContainer}>
         <View
           style={{
             borderStyle: 'solid',
@@ -66,15 +72,15 @@ function FormCard() {
           <FormControlInput
             control={control}
             errors={errors}
-            label="vencimento"
-            name="expirationDate"
             keyboardType="numeric"
+            label="vencimento"
+            mask="99/99"
+            name="expirationDate"
+            placeholder="04/29"
             rules={{
               pattern: VALIDATION_REGEXES.CREDIT_CARD_EXPIRATION_DATE,
               required: true,
             }}
-            placeholder="04/29"
-            mask="99/99"
           />
         </View>
 
@@ -97,10 +103,10 @@ function FormCard() {
       <Pressable
         onPress={handleSubmit(onSubmit)}
         style={{
-          ...sharedStyles.button,
+          ...globalStyles.button,
           backgroundColor: '#12C2E9',
         }}>
-        <Text style={{fontSize: 20, color: 'white'}}>avançar</Text>
+        <Text style={{color: 'white', fontSize: 20}}>avançar</Text>
       </Pressable>
     </View>
   );

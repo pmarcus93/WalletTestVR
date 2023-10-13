@@ -1,22 +1,23 @@
 import React from 'react';
 import {StyleSheet, Text, Pressable} from 'react-native';
-import CreditCardModel from '../../models/CreditCardModel';
+
+import CreditCardModel from '@models/CreditCardModel';
 
 const styles = StyleSheet.create({
   creditCard: {
-    backgroundColor: '#820ad1',
-    width: 300,
-    height: 180,
-    paddingHorizontal: 16,
     alignContent: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#820ad1',
     borderRadius: 16,
     borderWidth: 1,
     gap: 3,
+    height: 180,
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+    width: 300,
   },
   cardTitle: {
-    fontSize: 18,
     color: '#ffffff',
+    fontSize: 18,
     marginBottom: 12,
   },
   text: {

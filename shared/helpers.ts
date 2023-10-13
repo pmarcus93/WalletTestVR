@@ -1,14 +1,14 @@
-import randomcolor from 'randomcolor';
 import colornamer from 'color-namer';
+import randomcolor from 'randomcolor';
 
 const capitalize = (text: String) => {
   return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
 export const VALIDATION_REGEXES = {
-  CREDIT_CARD_NUMBER: /^\d{4} \d{4} \d{4} \d{4}$/,
-  CREDIT_CARD_EXPIRATION_DATE: /^(0[1-9]|1[0-2])\/\d{2}$/,
   CREDIT_CARD_CVV: /^\d{3}$/,
+  CREDIT_CARD_EXPIRATION_DATE: /^(0[1-9]|1[0-2])\/\d{2}$/,
+  CREDIT_CARD_NUMBER: /^\d{4} \d{4} \d{4} \d{4}$/,
 };
 
 export const getRandomColor = () => {

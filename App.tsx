@@ -9,11 +9,13 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from '@screens/Home';
-import ListCard from '@screens/ListCard';
+
+import AddCardButton from '@components/AddCardButton';
+
 import AddCard from '@screens/AddCard';
 import CardInserted from '@screens/CardInserted';
-import AddCardButton from '@components/AddCardButton';
+import Home from '@screens/Home';
+import ListCard from '@screens/ListCard';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,18 +23,18 @@ function CardInsertion() {
   return (
     <Stack.Navigator initialRouteName="InsertCard">
       <Stack.Screen
-        name="InsertCard"
         component={AddCard}
+        name="InsertCard"
         options={{
+          headerTintColor: '#12C2E9',
           headerTitle: 'cadastro',
           headerTitleAlign: 'center',
           headerTransparent: true,
-          headerTintColor: '#12C2E9',
         }}
       />
       <Stack.Screen
-        name="CardInserted"
         component={CardInserted}
+        name="CardInserted"
         options={{
           headerShown: false,
         }}
@@ -46,30 +48,30 @@ function App(): JSX.Element {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
-          name="Home"
           component={Home}
+          name="Home"
           options={{
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="CardInsertion"
           component={CardInsertion}
+          name="CardInsertion"
           options={{
             headerShown: false,
+            headerTintColor: '#142995',
             headerTitle: 'Wallet Test',
             headerTitleAlign: 'center',
-            headerTintColor: '#142995',
           }}
         />
         <Stack.Screen
-          name="MyCards"
           component={ListCard}
+          name="MyCards"
           options={{
+            headerRight: () => <AddCardButton />,
+            headerTintColor: '#142995',
             headerTitle: 'Wallet Test',
             headerTitleAlign: 'center',
-            headerTintColor: '#142995',
-            headerRight: () => <AddCardButton />,
           }}
         />
       </Stack.Navigator>

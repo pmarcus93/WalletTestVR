@@ -2,18 +2,19 @@ import React from 'react';
 import {ImageBackground, KeyboardAvoidingView, Platform} from 'react-native';
 
 const backgroundImage = require('../../assets/background.png');
-import sharedStyles from '../../shared/sharedStyles';
-import FormCard from '../FormCard/FormCard';
+import globalStyles from '@shared/globalStyles';
+
+import FormCard from '@screens/FormCard';
 
 function AddCard() {
   return (
     <ImageBackground
       source={backgroundImage}
       resizeMode="cover"
-      style={sharedStyles.containerFluid}>
+      style={globalStyles.containerFluid}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={sharedStyles.container}>
+        style={globalStyles.container}>
         <FormCard />
       </KeyboardAvoidingView>
     </ImageBackground>

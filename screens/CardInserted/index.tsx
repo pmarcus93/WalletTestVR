@@ -7,12 +7,16 @@ import {
   Text,
   View,
 } from 'react-native';
-import sharedStyles from '../../shared/sharedStyles';
-import CreditCardComponent from '@components/CreditCard';
-import {RouteProp} from '@react-navigation/native';
+
 import CreditCardModel from '../../models/CreditCardModel';
+
+import {RouteProp} from '@react-navigation/native';
+
+import {FONTS} from '@shared/defaults';
+import globalStyles from '@shared/globalStyles';
+
+import CreditCardComponent from '@components/CreditCard';
 import NavigationButton from '@components/NavigationButton';
-import {FONTS} from '../../shared/defaults';
 const backgroundImage = require('../../assets/background.png');
 
 type CardInsertedRouteProp = RouteProp<
@@ -25,8 +29,8 @@ interface CardInsertedProps {
 
 const styles = StyleSheet.create({
   subtitle: {
-    fontFamily: FONTS.fontFamily,
     color: '#ffffff',
+    fontFamily: FONTS.fontFamily,
     fontSize: 20,
     marginBottom: 12,
   },
@@ -39,12 +43,12 @@ function CardInserted({route}: CardInsertedProps) {
     <ImageBackground
       source={backgroundImage}
       resizeMode="cover"
-      style={sharedStyles.containerFluid}>
+      style={globalStyles.containerFluid}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={sharedStyles.container}>
-        <View style={sharedStyles.container}>
-          <Text style={sharedStyles.title}>Wallet Test</Text>
+        style={globalStyles.container}>
+        <View style={globalStyles.container}>
+          <Text style={globalStyles.title}>Wallet Test</Text>
           <Text style={styles.subtitle}>cartão cadastrado com sucesso!</Text>
           <CreditCardComponent creditCard={creditCard} />
         </View>

@@ -1,4 +1,5 @@
 import axios, {AxiosResponse} from 'axios';
+
 import CreditCardModel from '@models/CreditCardModel';
 
 const API_BASE_URL: string = 'http://192.168.1.7:3000';

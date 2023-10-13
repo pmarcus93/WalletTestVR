@@ -3,9 +3,9 @@ export const FONTS = {
 };
 
 export const COLORS = {
+  label: '#bbbbbb',
   mainDarkBlue: '#142995',
   mainLightBlue: '#12C2E9',
-  text: '#ffffff',
-  label: '#bbbbbb',
   placeholder: '#bbbbbb',
+  text: '#ffffff',
 };

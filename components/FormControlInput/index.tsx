@@ -1,3 +1,7 @@
+import React, {FC} from 'react';
+import {KeyboardTypeOptions, Text, View} from 'react-native';
+import {TextInput, TextInputProps} from 'react-native';
+
 import {
   Control,
   Controller,
@@ -5,32 +9,30 @@ import {
   FieldValues,
   ValidationRule,
 } from 'react-hook-form';
-import {KeyboardTypeOptions, Text, View} from 'react-native';
-import sharedStyles from '../../shared/sharedStyles';
-import React, {FC} from 'react';
-import {COLORS} from '../../shared/defaults';
 import {MaskedTextInput, MaskedTextInputProps} from 'react-native-mask-text';
-import {TextInput, TextInputProps} from 'react-native';
+
+import {COLORS} from '@shared/defaults';
+import globalStyles from '@shared/globalStyles';
 
 interface Props<T extends FieldValues> {
   control: Control<T, any>;
   errors: Partial<FieldErrors>;
+  keyboardType?: KeyboardTypeOptions;
   label: string;
+  mask?: string;
   name: string;
+  placeholder: string;
   rules?: {
     required?: boolean;
     pattern?: ValidationRule<RegExp>;
   };
-  mask?: string;
-  placeholder: string;
-  keyboardType?: KeyboardTypeOptions;
   secureTextEntry?: boolean;
 }
 
 const MaskedInput: React.FC<MaskedTextInputProps> = props => {
   return (
     <MaskedTextInput
-      style={sharedStyles.textInput}
+      style={globalStyles.textInput}
       placeholderTextColor={COLORS.placeholder}
       autoComplete="off"
       autoCorrect={false}
@@ -42,7 +44,7 @@ const MaskedInput: React.FC<MaskedTextInputProps> = props => {
 const RegularInput: React.FC<TextInputProps> = props => {
   return (
     <TextInput
-      style={sharedStyles.textInput}
+      style={globalStyles.textInput}
       placeholderTextColor={COLORS.placeholder}
       autoComplete="off"
       autoCorrect={false}
@@ -64,7 +66,7 @@ const FormControlInput: FC<Props<any>> = ({
 }: Props<any>) => {
   return (
     <View>
-      <Text style={sharedStyles.label}>{label}</Text>
+      <Text style={globalStyles.label}>{label}</Text>
       <Controller
         name={name}
         control={control}
