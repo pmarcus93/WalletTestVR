@@ -32,6 +32,11 @@ const globalStyles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 5,
   },
+  labelError: {
+    color: COLORS.labelError,
+    fontSize: 14,
+    marginTop: 5,
+  },
   rowContainer: {
     flexDirection: 'row',
     gap: 10,
@@ -45,6 +50,11 @@ const globalStyles = StyleSheet.create({
     height: 50,
     paddingHorizontal: 12,
     paddingVertical: 12,
+  },
+  textInputError: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: COLORS.labelError,
   },
   title: {
     alignSelf: 'center',

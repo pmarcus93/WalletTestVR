@@ -54,12 +54,12 @@ function FormCard() {
       <FormControlInput
         control={control}
         errors={errors}
-        keyboardType="default"
         label="nome do titular do cartão"
         mask={undefined}
         name="name"
         placeholder="JOSÉ A PEREIRA"
         rules={{required: true}}
+        autoCapitalize="characters"
       />
 
       <View style={globalStyles.rowContainer}>
@@ -95,6 +95,7 @@ function FormCard() {
             rules={{
               required: true,
             }}
+            keyboardType="numeric"
             secureTextEntry={true}
           />
         </View>
