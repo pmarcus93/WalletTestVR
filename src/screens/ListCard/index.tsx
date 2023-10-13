@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Animated, Text, View } from 'react-native';
+import { Animated, Text, View } from "react-native";
 
 import styles from './styles';
 
@@ -39,6 +39,8 @@ function ListCard() {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
+          marginTop: 10,
+          width: '100%',
         }}>
         {loading ? (
           <Text>Loading... </Text>
@@ -51,6 +53,8 @@ function ListCard() {
             )}
             keyExtractor={item => item.id}
             onScroll={onScroll}
+            bounces={false}
+            showsVerticalScrollIndicator={false}
           />
         )}
       </View>
