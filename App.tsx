@@ -1,48 +1,72 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from './screens/Home/Home';
-import ListCard from './screens/ListCard/ListCard';
-import AddCard from './screens/AddCard/AddCard';
+
+import AddCardButton from '@components/AddCardButton';
+
+import AddCard from '@screens/AddCard';
+import CardInserted from '@screens/CardInserted';
+import Home from '@screens/Home';
+import ListCard from '@screens/ListCard';
 
 const Stack = createNativeStackNavigator();
+
+function CardInsertion() {
+  // @ts-ignore
+  return (
+    <Stack.Navigator initialRouteName="InsertCard">
+      <Stack.Screen
+        component={AddCard}
+        name="InsertCard"
+        options={{
+          headerTintColor: '#12C2E9',
+          headerTitle: 'cadastro',
+          headerTitleAlign: 'center',
+          headerTransparent: true,
+        }}
+      />
+      <Stack.Screen
+        component={CardInserted}
+        name="CardInserted"
+        options={{
+          headerShown: false,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
 
 function App(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
-          name="Home"
           component={Home}
+          name="Home"
           options={{
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="MyCards"
-          component={ListCard}
+          component={CardInsertion}
+          name="CardInsertion"
           options={{
+            headerShown: false,
+            headerTintColor: '#142995',
             headerTitle: 'Wallet Test',
             headerTitleAlign: 'center',
-            headerTintColor: '#142995',
           }}
         />
         <Stack.Screen
-          name="InsertCard"
-          component={AddCard}
+          component={ListCard}
+          name="MyCards"
           options={{
-            headerTitle: 'cadastro',
+            // eslint-disable-next-line react/no-unstable-nested-components
+            headerRight: () => <AddCardButton />,
+            headerTintColor: '#142995',
+            headerTitle: 'Wallet Test',
             headerTitleAlign: 'center',
-            headerTransparent: true,
-            headerTintColor: '#12C2E9',
           }}
         />
       </Stack.Navigator>

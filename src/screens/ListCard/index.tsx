@@ -1,22 +1,25 @@
 import React, {useEffect, useState} from 'react';
-import { FlatList, Text, View } from "react-native";
-import CreditCardComponent from '../../components/CreditCard/CreditCardComponent';
-import {getCards} from '../../components/api';
-import CreditCard from '../../models/CreditCard';
-import styles from './ListCardStyles';
+import {FlatList, Text, View} from 'react-native';
+
+import styles from './styles';
+
+import {getCards} from '@api/CreditCardApi';
+
+import CreditCardModel from '@models/CreditCardModel';
+
+import CreditCardComponent from '@components/CreditCard';
 
 function ListCard() {
-  const [creditCards, setCreditCards] = useState<CreditCard[]>([]);
+  const [creditCards, setCreditCards] = useState<CreditCardModel[]>([]);
   const [loading, setLoading] = useState(false);
-  const [selectedCardId, setSelectedCardId] = useState('');
 
   useEffect(() => {
     fetchData();
-  }, []); // The empty dependency array ensures this effect runs only once, like componentDidMount
+  }, []);
 
   const fetchData = async () => {
     setLoading(true);
-    const data: CreditCard[] = await getCards();
+    const data: CreditCardModel[] = await getCards();
     setCreditCards(data);
     setLoading(false);
   };

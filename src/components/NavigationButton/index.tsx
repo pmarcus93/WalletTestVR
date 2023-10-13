@@ -1,8 +1,10 @@
 import React from 'react';
 import {Text, Pressable, ColorValue} from 'react-native';
-import sharedStyles from '../../shared/sharedStyles';
+
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+import globalStyles from '@shared/globalStyles';
 
 type Props = {
   text: String;
@@ -17,7 +19,7 @@ const NavigationButton: React.FC<Props> = props => {
   return (
     <Pressable
       onPress={() => navigate(props.navigateTo)}
-      style={[sharedStyles.button, {backgroundColor: props.backgroundColor}]}>
+      style={[globalStyles.button, {backgroundColor: props.backgroundColor}]}>
       <Text
         style={{
           fontSize: 20,
