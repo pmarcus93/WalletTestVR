@@ -1,4 +1,18 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# WalletTest - VR
+
+Desafio técnico da vaga de React Native para a VR. Projeto base criado utilizando a ferramenta [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+
+# Funcionalidades
+
+# Detalhes técnicos
+
+# Executando o projeto
+
+## Back-end
+
+## Android e iOS
+
+
 
 # Getting Started
 
