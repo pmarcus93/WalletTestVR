@@ -30,6 +30,7 @@ const globalStyles = StyleSheet.create({
   label: {
     color: COLORS.label,
     fontSize: 14,
+    marginBottom: 5,
   },
   rowContainer: {
     flexDirection: 'row',
