@@ -13,6 +13,7 @@ import ListCard from '@screens/ListCard';
 const Stack = createNativeStackNavigator();
 
 function CardInsertion() {
+  // @ts-ignore
   return (
     <Stack.Navigator initialRouteName="InsertCard">
       <Stack.Screen
@@ -61,6 +62,7 @@ function App(): JSX.Element {
           component={ListCard}
           name="MyCards"
           options={{
+            // eslint-disable-next-line react/no-unstable-nested-components
             headerRight: () => <AddCardButton />,
             headerTintColor: '#142995',
             headerTitle: 'Wallet Test',
