@@ -36,9 +36,9 @@ function ListCard() {
       </View>
       <View
         style={{
-          flex: 1, // Take up the entire screen
-          justifyContent: 'center', // Center vertically
-          alignItems: 'center', // Center horizontally
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
         }}>
         {loading ? (
           <Text>Loading... </Text>
