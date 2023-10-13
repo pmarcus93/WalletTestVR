@@ -6,7 +6,6 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const AddCardButton: React.FC = () => {
   const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-
   return (
     <Button
       onPress={() => navigate('CardInsertion')}

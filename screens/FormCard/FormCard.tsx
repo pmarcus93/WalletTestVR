@@ -1,12 +1,12 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
-import CreditCard from '../../models/CreditCard';
+import CreditCardModel from '../../models/CreditCardModel';
 import {Pressable, Text, View} from 'react-native';
 import sharedStyles from '../../shared/sharedStyles';
 import {getRandomColor, VALIDATION_REGEXES} from '../../shared/helpers';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {insertCard} from '../../components/api';
+import {insertCard} from '@api/CreditCardApi';
 import FormControlInput from '@components/FormControlInput';
 
 function FormCard() {
@@ -14,11 +14,11 @@ function FormCard() {
     control,
     handleSubmit,
     formState: {errors},
-  } = useForm<CreditCard>();
+  } = useForm<CreditCardModel>();
 
   const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
-  const onSubmit = async (data: CreditCard) => {
+  const onSubmit = async (data: CreditCardModel) => {
     const {color, colorName} = getRandomColor();
     data.color = color;
     data.title = 'Cartão ' + colorName;

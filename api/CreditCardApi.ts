@@ -1,13 +1,13 @@
 import axios, {AxiosResponse} from 'axios';
-import CreditCard from '../models/CreditCard';
+import CreditCardModel from '@models/CreditCardModel';
 
 const API_BASE_URL: string = 'http://192.168.1.7:3000';
-export const getCards = async (): Promise<CreditCard[]> => {
+export const getCards = async (): Promise<CreditCardModel[]> => {
   try {
-    const response: AxiosResponse<CreditCard[]> = await axios.get(
+    const response: AxiosResponse<CreditCardModel[]> = await axios.get(
       `${API_BASE_URL}/cards`,
     );
-    const creditCards: CreditCard[] = response.data;
+    const creditCards: CreditCardModel[] = response.data;
     console.log(creditCards);
     return creditCards;
   } catch (error) {
@@ -17,10 +17,10 @@ export const getCards = async (): Promise<CreditCard[]> => {
 };
 
 export const insertCard = async (
-  creditCard: CreditCard,
-): Promise<AxiosResponse<CreditCard>> => {
+  creditCard: CreditCardModel,
+): Promise<AxiosResponse<CreditCardModel>> => {
   try {
-    const response: AxiosResponse<CreditCard> = await axios.post(
+    const response: AxiosResponse<CreditCardModel> = await axios.post(
       `${API_BASE_URL}/cards`,
       creditCard,
     );

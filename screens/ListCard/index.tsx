@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, Text, View} from 'react-native';
 import CreditCardComponent from '@components/CreditCard';
-import {getCards} from '../../components/api';
-import CreditCard from '../../models/CreditCard';
+import {getCards} from '@api/CreditCardApi';
+import CreditCardModel from '@models/CreditCardModel';
 import styles from './styles';
 
 function ListCard() {
-  const [creditCards, setCreditCards] = useState<CreditCard[]>([]);
+  const [creditCards, setCreditCards] = useState<CreditCardModel[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function ListCard() {
 
   const fetchData = async () => {
     setLoading(true);
-    const data: CreditCard[] = await getCards();
+    const data: CreditCardModel[] = await getCards();
     setCreditCards(data);
     setLoading(false);
   };

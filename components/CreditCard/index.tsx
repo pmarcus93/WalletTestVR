@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, Pressable} from 'react-native';
-import CreditCard from '../../models/CreditCard';
+import CreditCardModel from '../../models/CreditCardModel';
 
 const styles = StyleSheet.create({
   creditCard: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  creditCard: CreditCard;
+  creditCard: CreditCardModel;
 };
 
 const CreditCardComponent: React.FC<Props> = ({creditCard}) => {

@@ -10,13 +10,13 @@ import {
 import sharedStyles from '../../shared/sharedStyles';
 import CreditCardComponent from '@components/CreditCard';
 import {RouteProp} from '@react-navigation/native';
-import CreditCard from '../../models/CreditCard';
+import CreditCardModel from '../../models/CreditCardModel';
 import NavigationButton from '@components/NavigationButton';
-import { FONTS } from "../../shared/defaults";
+import {FONTS} from '../../shared/defaults';
 const backgroundImage = require('../../assets/background.png');
 
 type CardInsertedRouteProp = RouteProp<
-  {CardInserted: {creditCard: CreditCard}},
+  {CardInserted: {creditCard: CreditCardModel}},
   'CardInserted'
 >;
 interface CardInsertedProps {

@@ -1,4 +1,4 @@
-interface CreditCard {
+interface CreditCardModel {
   id: string;
   number: string;
   cvv: string;
@@ -8,4 +8,4 @@ interface CreditCard {
   expirationDate?: string;
 }
 
-export default CreditCard;
+export default CreditCardModel;

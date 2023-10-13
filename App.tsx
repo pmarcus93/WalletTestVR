@@ -13,7 +13,7 @@ import Home from '@screens/Home';
 import ListCard from '@screens/ListCard';
 import AddCard from '@screens/AddCard';
 import CardInserted from '@screens/CardInserted';
-import AddCardButton from './components/AddCardButton/AddCardButton';
+import AddCardButton from '@components/AddCardButton';
 
 const Stack = createNativeStackNavigator();
 
