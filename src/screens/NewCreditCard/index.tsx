@@ -2,11 +2,12 @@ import React from 'react';
 import {ImageBackground, KeyboardAvoidingView, Platform} from 'react-native';
 
 import globalStyles from '../../shared/globalStyles';
-import FormCard from '../FormCard';
+
+import NewCreditCardForm from '@screens/NewCreditCardForm';
 
 const backgroundImage = require('../../../assets/background.png');
 
-function AddCard() {
+function NewCreditCard() {
   return (
     <ImageBackground
       source={backgroundImage}
@@ -15,10 +16,10 @@ function AddCard() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={globalStyles.container}>
-        <FormCard />
+        <NewCreditCardForm />
       </KeyboardAvoidingView>
     </ImageBackground>
   );
 }
 
-export default AddCard;
+export default NewCreditCard;

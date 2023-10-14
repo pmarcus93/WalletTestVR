@@ -1,5 +1,6 @@
-export {default as AddCard} from './AddCard';
-export {default as CardInserted} from './CardInserted';
-export {default as ListCard} from './ListCard';
+export {default as AddCard} from './NewCreditCard';
+export {default as CardInserted} from './CreditCardSuccessfulyInserted';
+export {default as CreditCardList} from './CreditCardList';
 export {default as Home} from './Home';
-export {default as FormCard} from './FormCard';
+export {default as NewCreditCardForm} from './NewCreditCardForm';
+export {default as SelectedCard} from './SelectedCard';

@@ -1,13 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, Pressable} from 'react-native';
-import {Animated, Dimensions} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
-export const MARGIN = 16;
-export const CARD_HEIGHT = 180 + MARGIN * 2;
-
-const {height: wHeight} = Dimensions.get('window');
-const height = wHeight - 64;
 import CreditCardModel from '@models/CreditCardModel';
+
+import {MARGIN} from '@components/AnimatedCreditCard';
 
 const styles = StyleSheet.create({
   creditCard: {
@@ -38,61 +34,23 @@ const styles = StyleSheet.create({
   },
 });
 
-type CardProps = {
-  y: Animated.Value;
-  index: number;
+interface CreditCardProps {
   creditCard: CreditCardModel;
-};
+}
 
-const CreditCardComponent = ({creditCard, y, index}: CardProps) => {
-  const position = Animated.subtract(index * CARD_HEIGHT, y);
-  const isDisappearing = -CARD_HEIGHT;
-  const isTop = 0;
-  const isBottom = height - CARD_HEIGHT / 2;
-  const isAppearing = height;
-  const translateY = Animated.add(
-    Animated.add(
-      y,
-      y.interpolate({
-        inputRange: [0, 0.00001 + index * CARD_HEIGHT],
-        outputRange: [0, -index * CARD_HEIGHT],
-        extrapolateRight: 'clamp',
-      }),
-    ),
-    position.interpolate({
-      inputRange: [isBottom, isAppearing],
-      outputRange: [0, -CARD_HEIGHT / 4],
-      extrapolate: 'clamp',
-    }),
-  );
-  const scale = position.interpolate({
-    inputRange: [isDisappearing, isTop, isBottom, isAppearing],
-    outputRange: [0.5, 1, 1, 0.5],
-    extrapolate: 'clamp',
-  });
-  const opacity = position.interpolate({
-    inputRange: [isDisappearing, isTop, isBottom, isAppearing],
-    outputRange: [0.5, 1, 1, 0.5],
-  });
-
+function CreditCard({creditCard}: CreditCardProps) {
   return (
-    <Animated.View
-      style={[styles.card, {opacity, transform: [{translateY}, {scale}]}]}
-      key={index}>
-      <Pressable
-        onPress={() => {
-          console.log('clicado no cartão: ' + creditCard.title);
-        }}
-        style={[styles.creditCard, {backgroundColor: creditCard.color}]}>
+    <>
+      <View style={[styles.creditCard, {backgroundColor: creditCard.color}]}>
         <Text style={styles.cardTitle}>{creditCard.title}</Text>
         <Text style={styles.text}>{creditCard.name}</Text>
         <Text style={styles.text}>
           **** **** **** *{creditCard.number.slice(-3)}
         </Text>
         <Text style={styles.text}>Validade: {creditCard.expirationDate}</Text>
-      </Pressable>
-    </Animated.View>
+      </View>
+    </>
   );
-};
+}
 
-export default CreditCardComponent;
+export default CreditCard;

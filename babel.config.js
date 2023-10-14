@@ -6,9 +6,11 @@ module.exports = {
       'module-resolver',
       {
         alias: {
+          '@assets': './src/assets/',
           '@api': './src/api/',
           '@components': './src/components/',
           '@models': './src/models/',
+          '@navigation': './src/navigation/',
           '@screens': './src/screens/',
           '@shared': './src/shared/',
           '@transformations': './src/transformations/',

@@ -3,13 +3,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@assets": ["src/assets/*"],
       "tests": ["tests/*"],
       "@screens/*": ["src/screens/*"],
       "@components/*": ["src/components/*"],
       "@models/*": ["src/models/*"],
       "@api/*": ["src/api/*"],
       "@shared/*": ["src/shared/*"],
-      "@transformations/*": ["src/transformations/*"]
+      "@transformations/*": ["src/transformations/*"],
+      "@navigation/*": ["src/navigation/*"],
     },
   }
 }

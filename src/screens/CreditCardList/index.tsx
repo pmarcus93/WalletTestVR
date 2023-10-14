@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import { Animated, Text, View } from "react-native";
+import {Animated, Text, View} from 'react-native';
 
 import styles from './styles';
 
-import { getCards } from '@api/CreditCardApi';
+import {getCards} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
-import CreditCardComponent from '@components/CreditCard';
+import AnimatedCreditCard from '@components/AnimatedCreditCard';
 
-function ListCard() {
+function CreditCardList() {
   const [creditCards, setCreditCards] = useState<CreditCardModel[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -21,6 +21,8 @@ function ListCard() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  //const cardClickHandler = item => {};
 
   const fetchData = async () => {
     setLoading(true);
@@ -49,7 +51,11 @@ function ListCard() {
             scrollEventThrottle={16}
             data={creditCards}
             renderItem={({index, item}) => (
-              <CreditCardComponent y={y} index={index} creditCard={item} />
+              <AnimatedCreditCard
+                y={y}
+                index={index}
+                creditCard={item}
+              />
             )}
             keyExtractor={item => item.id}
             onScroll={onScroll}
@@ -62,4 +68,4 @@ function ListCard() {
   );
 }
 
-export default ListCard;
+export default CreditCardList;

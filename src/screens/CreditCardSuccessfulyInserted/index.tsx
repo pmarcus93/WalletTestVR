@@ -15,7 +15,7 @@ import CreditCardModel from '@models/CreditCardModel';
 import {FONTS} from '@shared/defaults';
 import globalStyles from '@shared/globalStyles';
 
-import CreditCardComponent from '@components/CreditCard';
+import CreditCard from '@components/CreditCard';
 import NavigationButton from '@components/NavigationButton';
 const backgroundImage = require('../../../assets/background.png');
 
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function CardInserted({route}: CardInsertedProps) {
+const CardCardSuccessfullyInserted = ({route}: CardInsertedProps) => {
   const {creditCard} = route.params;
 
   return (
@@ -50,17 +50,17 @@ function CardInserted({route}: CardInsertedProps) {
         <View style={globalStyles.container}>
           <Text style={globalStyles.title}>Wallet Test</Text>
           <Text style={styles.subtitle}>cartão cadastrado com sucesso!</Text>
-          <CreditCardComponent creditCard={creditCard} />
+          <CreditCard creditCard={creditCard} />
         </View>
         <NavigationButton
           text="avançar"
           textColor="#ffffff"
           backgroundColor="#12C2E9"
-          navigateTo="MyCards"
+          navigateTo="CardsListing"
         />
       </KeyboardAvoidingView>
     </ImageBackground>
   );
-}
+};
 
-export default CardInserted;
+export default CardCardSuccessfullyInserted;

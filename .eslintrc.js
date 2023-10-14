@@ -3,7 +3,6 @@ module.exports = {
   root: true,
   plugins: ['perfectionist'],
   rules: {
-    'perfectionist/sort-interfaces': 'error',
     'perfectionist/sort-imports': [
       'error',
       {
