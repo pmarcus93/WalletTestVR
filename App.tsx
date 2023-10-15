@@ -13,7 +13,6 @@ import SelectedCard from '@screens/SelectedCard';
 const Stack = createNativeStackNavigator();
 
 const CardInsertion = () => {
-  // @ts-ignore
   return (
     <Stack.Navigator initialRouteName="InsertCard">
       <Stack.Screen
