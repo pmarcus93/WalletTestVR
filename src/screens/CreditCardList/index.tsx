@@ -51,11 +51,7 @@ function CreditCardList() {
             scrollEventThrottle={16}
             data={creditCards}
             renderItem={({index, item}) => (
-              <AnimatedCreditCard
-                y={y}
-                index={index}
-                creditCard={item}
-              />
+              <AnimatedCreditCard y={y} index={index} creditCard={item} />
             )}
             keyExtractor={item => item.id}
             onScroll={onScroll}
