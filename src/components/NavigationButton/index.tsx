@@ -8,7 +8,7 @@ import globalStyles from '@shared/globalStyles';
 type Props = {
   text: String;
   textColor: ColorValue;
-  backgroundColor: ColorValue;
+  backgroundColor: ColorValue | string;
   navigateTo: any;
 };
 

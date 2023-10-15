@@ -7,7 +7,6 @@ import NewCreditCardForm from 'src/screens/NewCreditCard';
 import AddCardButton from '@components/AddCardButton';
 
 import CreditCardList from '@screens/CreditCardList';
-import CardCardSuccessfullyInserted from '@screens/CreditCardSuccessfulyInserted';
 import Home from '@screens/Home';
 import SelectedCard from '@screens/SelectedCard';
 
@@ -27,13 +26,6 @@ const CardInsertion = () => {
           headerTransparent: true,
         }}
       />
-      <Stack.Screen
-        name="CardInserted"
-        component={CardCardSuccessfullyInserted}
-        options={{
-          headerShown: false,
-        }}>
-      </Stack.Screen>
     </Stack.Navigator>
   );
 };
