@@ -6,6 +6,7 @@ interface CreditCardModel {
   name: string;
   number: string;
   title: string;
+  selected?: boolean;
 }
 
 export default CreditCardModel;

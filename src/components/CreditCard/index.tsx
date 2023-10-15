@@ -45,7 +45,7 @@ function CreditCard({creditCard}: CreditCardProps) {
         <Text style={styles.cardTitle}>{creditCard.title}</Text>
         <Text style={styles.text}>{creditCard.name}</Text>
         <Text style={styles.text}>
-          **** **** **** *{creditCard.number.slice(-3)}
+          **** **** **** *{creditCard.number?.slice(-3)}
         </Text>
         <Text style={styles.text}>Validade: {creditCard.expirationDate}</Text>
       </View>

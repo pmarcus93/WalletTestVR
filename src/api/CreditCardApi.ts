@@ -9,10 +9,10 @@ export const getCards = async (): Promise<CreditCardModel[]> => {
       `${API_BASE_URL}/cards`,
     );
     const creditCards: CreditCardModel[] = response.data;
-    console.log(creditCards);
+    // console.log(creditCards);
     return creditCards;
   } catch (error) {
-    console.error('Error fetching data:', error);
+    // console.error('Error fetching data:', error);
     throw error;
   }
 };
