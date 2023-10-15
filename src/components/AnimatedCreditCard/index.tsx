@@ -7,8 +7,6 @@ export const CARD_HEIGHT = 180 + MARGIN * 2;
 
 const {height: wHeight} = Dimensions.get('window');
 const height = wHeight - 64;
-import {ParamListBase, useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import CreditCardModel from '@models/CreditCardModel';
 
@@ -50,8 +48,6 @@ type CardProps = {
 };
 
 const AnimatedCreditCard = ({creditCard, y, index}: CardProps) => {
-  const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-
   const position = Animated.subtract(index * CARD_HEIGHT, y);
   const isDisappearing = -CARD_HEIGHT;
   const isTop = 0;
