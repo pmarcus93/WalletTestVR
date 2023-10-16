@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 
 import CreditCardModel from '@models/CreditCardModel';
 
-import {MARGIN} from '@components/AnimatedCreditCard';
+export const MARGIN = 16;
 
 const styles = StyleSheet.create({
   creditCard: {
