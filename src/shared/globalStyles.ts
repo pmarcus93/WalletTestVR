@@ -56,19 +56,6 @@ const globalStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.labelError,
   },
-  title: {
-    alignSelf: 'center',
-    color: COLORS.text,
-    fontFamily: FONTS.fontFamily,
-    fontSize: 32,
-  },
-  subtitle: {
-    alignSelf: 'center',
-    color: COLORS.text,
-    fontFamily: FONTS.fontFamily,
-    fontSize: 20,
-    marginBottom: 10,
-  },
 });
 
 export default globalStyles;

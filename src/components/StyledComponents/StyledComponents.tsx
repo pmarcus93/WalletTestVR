@@ -3,6 +3,8 @@ import styled from 'styled-components/native';
 import {COLORS, FONTS} from '@shared/defaults';
 
 export const Container = styled.View`
+  align-items: center;
+  gap: 10px;
   margin-right: 10px;
   margin-left: 10px;
 `;
@@ -44,4 +46,14 @@ interface PressableButtonTextProps {
 export const PressableButtonText = styled.Text<PressableButtonTextProps>`
   font-size: 20px;
   color: ${props => props.color || COLORS.mainDarkBlue};
+`;
+
+export const ViewGap10 = styled.View`
+  display: flex;
+  gap: 10px;
+`;
+
+export const ViewGap20 = styled.View`
+  display: flex;
+  gap: 20px;
 `;

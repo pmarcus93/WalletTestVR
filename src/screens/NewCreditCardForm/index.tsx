@@ -15,7 +15,7 @@ import {VALIDATION_REGEXES, getRandomColor} from '@shared/helpers';
 
 import CreditCard from '@components/CreditCard';
 import FormControlInput from '@components/FormControlInput';
-import {Title} from '@components/StyledComponents/StyledComponents';
+import {Subtitle, Title} from '@components/StyledComponents/StyledComponents';
 
 function FormCard() {
   const {
@@ -140,10 +140,8 @@ function FormCard() {
     return (
       <>
         <View style={globalStyles.container}>
-          <Text style={globalStyles.title}>Wallet Test</Text>
-          <Text style={globalStyles.subtitle}>
-            cartão cadastrado com sucesso
-          </Text>
+          <Title>Wallet Test</Title>
+          <Subtitle>cartão cadastrado com sucesso</Subtitle>
           <CreditCard creditCard={insertedCreditCard} />
 
           <Pressable
