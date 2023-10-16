@@ -1,8 +1,6 @@
 import React from 'react';
 import {ColorValue} from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
-
 import {
   PressableButton,
   PressableButtonText,
@@ -12,16 +10,11 @@ type Props = {
   text: String;
   textColor: string;
   backgroundColor: ColorValue | string;
-  navigateTo: any;
 };
 
-const NavigationButton: React.FC<Props> = props => {
-  const navigation = useNavigation();
-
+const CustomButton: React.FC<Props> = props => {
   return (
-    <PressableButton
-      onPress={() => navigation.navigate(props.navigateTo)}
-      style={{backgroundColor: props.backgroundColor}}>
+    <PressableButton style={{backgroundColor: props.backgroundColor}}>
       <PressableButtonText color={props.textColor}>
         {props.text}
       </PressableButtonText>
@@ -29,4 +22,4 @@ const NavigationButton: React.FC<Props> = props => {
   );
 };
 
-export default NavigationButton;
+export default CustomButton;

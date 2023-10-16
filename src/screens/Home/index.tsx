@@ -1,17 +1,19 @@
 import React from 'react';
-import {ImageBackground, Text, View} from 'react-native';
+import {ImageBackground} from 'react-native';
 const backgroundImage = require('/assets/background.png');
 import NavigationButton from '../../components/NavigationButton';
 import globalStyles from '../../shared/globalStyles';
+
+import { Container, Title, ViewGap20 } from "@components/StyledComponents/StyledComponents";
 
 function Home({}) {
   return (
     <ImageBackground
       source={backgroundImage}
       style={globalStyles.containerFluid}>
-      <View style={{...globalStyles.container}}>
-        <Text style={globalStyles.title}>Wallet Test</Text>
-        <View style={{gap: 20}}>
+      <Container>
+        <Title>Wallet Test</Title>
+        <ViewGap20>
           <NavigationButton
             backgroundColor={'#12C2E9'}
             textColor={'#ffffff'}
@@ -24,8 +26,8 @@ function Home({}) {
             text={'cadastrar cartão'}
             navigateTo={'CardInsertion'}
           />
-        </View>
-      </View>
+        </ViewGap20>
+      </Container>
     </ImageBackground>
   );
 }

@@ -2,8 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import {
   Alert,
   Animated,
-  Button,
   FlatList,
+  Pressable,
   Text,
   TouchableWithoutFeedback,
   View,
@@ -14,6 +14,9 @@ import styles from './styles';
 import {getCards} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
+
+import {COLORS} from '@shared/defaults';
+import globalStyles from '@shared/globalStyles';
 
 import AnimatedCreditCard from '@components/AnimatedCreditCard';
 import CreditCard from '@components/CreditCard';
@@ -72,11 +75,27 @@ function CreditCardList({navigation}) {
         <Text style={styles.textBottomHeader}>Meus Cartões</Text>
       </View>
 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 20,
+        }}>
         {selectedCreditCard && !loading && (
           <>
             <CreditCard creditCard={selectedCreditCard} />
-            <Button title={'pagar com este cartão'} />
+            <Pressable
+              style={[
+                globalStyles.button,
+                {
+                  backgroundColor: COLORS.mainLightBlue,
+                },
+              ]}>
+              <Text style={{color: '#ffffff', fontSize: 18}}>
+                pagar com este cartão
+              </Text>
+            </Pressable>
           </>
         )}
       </View>
@@ -86,7 +105,6 @@ function CreditCardList({navigation}) {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 75,
         }}>
         {loading ? (
           <Text>Carregando... </Text>
