@@ -39,17 +39,15 @@ interface CreditCardProps {
 }
 
 function CreditCard({creditCard}: CreditCardProps) {
+  const {color, title, name, number, expirationDate} = creditCard;
+
   return (
-    <>
-      <View style={[styles.creditCard, {backgroundColor: creditCard.color}]}>
-        <Text style={styles.cardTitle}>{creditCard.title}</Text>
-        <Text style={styles.text}>{creditCard.name}</Text>
-        <Text style={styles.text}>
-          **** **** **** *{creditCard.number?.slice(-3)}
-        </Text>
-        <Text style={styles.text}>Validade: {creditCard.expirationDate}</Text>
-      </View>
-    </>
+    <View style={[styles.creditCard, {backgroundColor: color}]}>
+      <Text style={styles.cardTitle}>{title}</Text>
+      <Text style={styles.text}>{name}</Text>
+      <Text style={styles.text}>**** **** **** *{number?.slice(-3)}</Text>
+      <Text style={styles.text}>Validade: {expirationDate}</Text>
+    </View>
   );
 }
 
