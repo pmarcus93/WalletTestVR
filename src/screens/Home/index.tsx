@@ -1,6 +1,6 @@
 import React from 'react';
 import {ImageBackground, Text, View} from 'react-native';
-const backgroundImage = require('../../../assets/background.png');
+const backgroundImage = require('/assets/background.png');
 import NavigationButton from '../../components/NavigationButton';
 import globalStyles from '../../shared/globalStyles';
 
