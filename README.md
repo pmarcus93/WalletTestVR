@@ -34,7 +34,7 @@ React Native / TypeScript / React Navigation / React Native Reanimated / Jest
 - Caso esteja executando o app em um emulador, execute `npm run db` na raíz do projeto.
 - Caso esteja executando o app em um dispositivo físico,
   - Conecte o computador e o dispositivo na mesma rede,
-  - Edite o arquivo `` e substitua `localhost` pelo IP da máquina na rede local onde o projeto será executado.
+  - Edite os arquivos `package.json` e `CreditCardApi` e substitua `localhost` pelo IP da máquina na rede local onde o projeto será executado.
   - Execute `npm run db`.
 
 
