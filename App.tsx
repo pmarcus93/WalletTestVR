@@ -65,7 +65,7 @@ function App(): JSX.Element {
           component={CardsListing}
           name="CardsListing"
           options={{
-            headerRight: () => <AddCardButton />,
+            headerRight: AddCardButton,
             headerTintColor: '#142995',
             headerTitle: 'Wallet Test',
             headerTitleAlign: 'center',
