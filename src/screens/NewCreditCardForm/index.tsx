@@ -10,6 +10,7 @@ import {insertCard} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
+import {ERROR_MESSAGES} from '@shared/defaults';
 import globalStyles from '@shared/globalStyles';
 import {VALIDATION_REGEXES, getRandomColor} from '@shared/helpers';
 
@@ -43,20 +44,14 @@ function FormCard() {
       setInsertedCreditcard(data);
       setSubmitted(true);
     } catch (e) {
-      Alert.alert(
-        'API Indisponível',
-        'Parece que a API com os dados do cartão de crédito não foi encontrada. ' +
-          '\nCertifique-se de executar as instruções no README.md do projeto. ' +
-          '\nVocê será redirecionado à tela inicial.',
-        [
-          {
-            text: 'OK',
-            onPress: () => {
-              navigate('Home');
-            },
+      Alert.alert(ERROR_MESSAGES.API.title, ERROR_MESSAGES.API.message, [
+        {
+          text: 'OK',
+          onPress: () => {
+            navigate('Home');
           },
-        ],
-      );
+        },
+      ]);
     }
   };
 
