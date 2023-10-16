@@ -2,6 +2,8 @@
 
 Desafio técnico da vaga de React Native para a VR. Projeto base criado utilizando a ferramenta [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+![Captura de tela do app](screenshots/wallettest.webp)
+
 ## Funcionalidades
 
 ### Cadastro de Cartão de Crédito
