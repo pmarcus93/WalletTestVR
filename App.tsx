@@ -65,7 +65,6 @@ function App(): JSX.Element {
           component={CardsListing}
           name="CardsListing"
           options={{
-            // eslint-disable-next-line react/no-unstable-nested-components
             headerRight: () => <AddCardButton />,
             headerTintColor: '#142995',
             headerTitle: 'Wallet Test',

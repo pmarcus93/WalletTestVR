@@ -20,7 +20,7 @@ import {ErrorLabel, Label} from '@components/StyledComponents/StyledComponents';
 
 interface Props<T extends FieldValues> {
   autoCapitalize?: AutoCapitalizeOptions;
-  control: Control<T, any>;
+  control: Control<T>;
   errors: Partial<FieldErrors>;
   keyboardType?: KeyboardTypeOptions;
   label: string;

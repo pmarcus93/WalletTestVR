@@ -7,13 +7,9 @@ import {
   CardTitle,
   CreditCardView,
 } from '@components/StyledComponents/StyledComponents';
-
-export const MARGIN = 16;
-
 interface CreditCardProps {
   creditCard: CreditCardModel;
 }
-
 function CreditCard({creditCard}: CreditCardProps) {
   const {color, title, name, number, expirationDate} = creditCard;
 
