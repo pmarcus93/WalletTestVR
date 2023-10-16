@@ -16,7 +16,7 @@ function Home({}) {
             backgroundColor={'#12C2E9'}
             textColor={'#ffffff'}
             text={'meus cartões'}
-            navigateTo={'MyCards'}
+            navigateTo={'CardsListing'}
           />
           <NavigationButton
             backgroundColor={'#A5FF32'}

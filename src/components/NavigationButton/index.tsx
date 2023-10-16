@@ -1,24 +1,23 @@
 import React from 'react';
 import {Text, Pressable, ColorValue} from 'react-native';
 
-import {ParamListBase, useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 
 import globalStyles from '@shared/globalStyles';
 
 type Props = {
   text: String;
-  textColor: String;
-  backgroundColor: ColorValue;
-  navigateTo: String;
+  textColor: ColorValue;
+  backgroundColor: ColorValue | string;
+  navigateTo: any;
 };
 
 const NavigationButton: React.FC<Props> = props => {
-  const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+  const navigation = useNavigation();
 
   return (
     <Pressable
-      onPress={() => navigate(props.navigateTo)}
+      onPress={() => navigation.navigate(props.navigateTo)}
       style={[globalStyles.button, {backgroundColor: props.backgroundColor}]}>
       <Text
         style={{

@@ -1,7 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, Pressable} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 import CreditCardModel from '@models/CreditCardModel';
+
+import {MARGIN} from '@components/AnimatedCreditCard';
 
 const styles = StyleSheet.create({
   creditCard: {
@@ -9,7 +11,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#820ad1',
     borderRadius: 16,
     borderWidth: 1,
-    gap: 3,
     height: 180,
     justifyContent: 'center',
     paddingHorizontal: 16,
@@ -27,27 +28,29 @@ const styles = StyleSheet.create({
   container: {
     gap: 5,
   },
+  card: {
+    marginVertical: MARGIN / 2,
+    alignSelf: 'center',
+  },
 });
 
-type Props = {
+interface CreditCardProps {
   creditCard: CreditCardModel;
-};
+}
 
-const CreditCardComponent: React.FC<Props> = ({creditCard}) => {
+function CreditCard({creditCard}: CreditCardProps) {
   return (
-    <Pressable
-      onPress={() => {
-        console.log('clicado no cartão: ' + creditCard.title);
-      }}
-      style={[styles.creditCard, {backgroundColor: creditCard.color}]}>
-      <Text style={styles.cardTitle}>{creditCard.title}</Text>
-      <Text style={styles.text}>{creditCard.name}</Text>
-      <Text style={styles.text}>
-        **** **** **** *{creditCard.number.slice(-3)}
-      </Text>
-      <Text style={styles.text}>Validade: {creditCard.expirationDate}</Text>
-    </Pressable>
+    <>
+      <View style={[styles.creditCard, {backgroundColor: creditCard.color}]}>
+        <Text style={styles.cardTitle}>{creditCard.title}</Text>
+        <Text style={styles.text}>{creditCard.name}</Text>
+        <Text style={styles.text}>
+          **** **** **** *{creditCard.number?.slice(-3)}
+        </Text>
+        <Text style={styles.text}>Validade: {creditCard.expirationDate}</Text>
+      </View>
+    </>
   );
-};
+}
 
-export default CreditCardComponent;
+export default CreditCard;
