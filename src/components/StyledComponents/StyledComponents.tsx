@@ -57,3 +57,28 @@ export const ViewGap20 = styled.View`
   display: flex;
   gap: 20px;
 `;
+
+export const CardTitle = styled.Text`
+  font-family: ${FONTS.fontFamily};
+  font-size: 12px;
+  margin-bottom: 12px;
+  color: #ffffff;
+`;
+
+export const CardText = styled.Text`
+  font-family: ${FONTS.fontFamily};
+  font-size: 16px;
+  color: #ffffff;
+`;
+
+export const CreditCardView = styled.View`
+  align-content: center;
+  background-color: #820ad1;
+  border-radius: 16px;
+  border-width: 1px;
+  height: 180px;
+  justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 300px;
+`;
