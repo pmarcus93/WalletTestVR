@@ -1,8 +1,10 @@
 import React from 'react';
-import {ImageBackground, Text, View} from 'react-native';
+import {ImageBackground, View} from 'react-native';
 const backgroundImage = require('/assets/background.png');
 import NavigationButton from '../../components/NavigationButton';
 import globalStyles from '../../shared/globalStyles';
+
+import {Title} from '@components/StyledComponents/StyledComponents';
 
 function Home({}) {
   return (
@@ -10,7 +12,7 @@ function Home({}) {
       source={backgroundImage}
       style={globalStyles.containerFluid}>
       <View style={{...globalStyles.container}}>
-        <Text style={globalStyles.title}>Wallet Test</Text>
+        <Title>Wallet Test</Title>
         <View style={{gap: 20}}>
           <NavigationButton
             backgroundColor={'#12C2E9'}

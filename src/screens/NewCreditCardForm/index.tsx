@@ -15,6 +15,7 @@ import {VALIDATION_REGEXES, getRandomColor} from '@shared/helpers';
 
 import CreditCard from '@components/CreditCard';
 import FormControlInput from '@components/FormControlInput';
+import {Title} from '@components/StyledComponents/StyledComponents';
 
 function FormCard() {
   const {
@@ -59,7 +60,7 @@ function FormCard() {
     return (
       <>
         <View style={[{gap: 10}]}>
-          <Text style={globalStyles.title}>Wallet Test</Text>
+          <Title>Wallet Test</Title>
           <FormControlInput
             control={control}
             errors={errors}

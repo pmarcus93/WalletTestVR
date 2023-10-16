@@ -16,6 +16,8 @@ import {AutoCapitalizeOptions} from 'react-native-mask-text/lib/typescript/src/@
 import {COLORS} from '@shared/defaults';
 import globalStyles from '@shared/globalStyles';
 
+import {Label} from '@components/StyledComponents/StyledComponents';
+
 interface Props<T extends FieldValues> {
   autoCapitalize?: AutoCapitalizeOptions;
   control: Control<T, any>;
@@ -54,7 +56,7 @@ const FormControlInput: FC<Props<any>> = ({
 }: Props<any>) => {
   return (
     <View>
-      <Text style={globalStyles.label}>{label}</Text>
+      <Label>{label}</Label>
       <Controller
         name={name}
         control={control}

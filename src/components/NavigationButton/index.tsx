@@ -1,13 +1,16 @@
 import React from 'react';
-import {Text, Pressable, ColorValue} from 'react-native';
+import {ColorValue} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
-import globalStyles from '@shared/globalStyles';
+import {
+  PressableButton,
+  PressableButtonText,
+} from '@components/StyledComponents/StyledComponents';
 
 type Props = {
   text: String;
-  textColor: ColorValue;
+  textColor: string;
   backgroundColor: ColorValue | string;
   navigateTo: any;
 };
@@ -16,17 +19,13 @@ const NavigationButton: React.FC<Props> = props => {
   const navigation = useNavigation();
 
   return (
-    <Pressable
+    <PressableButton
       onPress={() => navigation.navigate(props.navigateTo)}
-      style={[globalStyles.button, {backgroundColor: props.backgroundColor}]}>
-      <Text
-        style={{
-          fontSize: 20,
-          color: props.textColor,
-        }}>
+      style={{backgroundColor: props.backgroundColor}}>
+      <PressableButtonText color={props.textColor}>
         {props.text}
-      </Text>
-    </Pressable>
+      </PressableButtonText>
+    </PressableButton>
   );
 };
 
