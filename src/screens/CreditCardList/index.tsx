@@ -72,7 +72,13 @@ function CreditCardList({navigation}) {
         <Text style={styles.textBottomHeader}>Meus Cartões</Text>
       </View>
 
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 20,
+        }}>
         {selectedCreditCard && !loading && (
           <>
             <CreditCard creditCard={selectedCreditCard} />
@@ -86,7 +92,6 @@ function CreditCardList({navigation}) {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 75,
         }}>
         {loading ? (
           <Text>Carregando... </Text>
