@@ -7,12 +7,12 @@ export const getCards = async (): Promise<CreditCardModel[]> => {
   try {
     const response: AxiosResponse<CreditCardModel[]> = await axios.get(
       `${API_BASE_URL}/cards`,
+      {
+        timeout: 3000,
+      },
     );
-    const creditCards: CreditCardModel[] = response.data;
-    // console.log(creditCards);
-    return creditCards;
+    return response.data;
   } catch (error) {
-    // console.error('Error fetching data:', error);
     throw error;
   }
 };
@@ -21,14 +21,10 @@ export const insertCard = async (
   creditCard: CreditCardModel,
 ): Promise<AxiosResponse<CreditCardModel>> => {
   try {
-    const response: AxiosResponse<CreditCardModel> = await axios.post(
-      `${API_BASE_URL}/cards`,
-      creditCard,
-    );
-    console.log('Credit card inserted successfully:', response.data);
-    return response;
+    return await axios.post(`${API_BASE_URL}/cards`, creditCard, {
+      timeout: 3000,
+    });
   } catch (error) {
-    console.error('Error inserting credit card:', error);
     throw error;
   }
 };

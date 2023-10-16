@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {Alert, Pressable, Text, View} from 'react-native';
 
 import {useForm} from 'react-hook-form';
 
@@ -30,12 +30,29 @@ function FormCard() {
   const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   const onSubmit = async (data: CreditCardModel) => {
-    const {color, colorName} = getRandomColor();
-    data.color = color;
-    data.title = 'Cartão ' + colorName;
-    await insertCard(data);
-    setInsertedCreditcard(data);
-    setSubmitted(true);
+    try {
+      const {color, colorName} = getRandomColor();
+      data.color = color;
+      data.title = 'Cartão ' + colorName;
+      await insertCard(data);
+      setInsertedCreditcard(data);
+      setSubmitted(true);
+    } catch (e) {
+      Alert.alert(
+        'API Indisponível',
+        'Parece que a API com os dados do cartão de crédito não foi encontrada. ' +
+          '\nCertifique-se de executar as instruções no README.md do projeto. ' +
+          '\nVocê será redirecionado à tela inicial.',
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              navigate('Home');
+            },
+          },
+        ],
+      );
+    }
   };
 
   if (!submited) {
