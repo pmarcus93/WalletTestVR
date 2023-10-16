@@ -42,7 +42,8 @@ function CreditCard({creditCard}: CreditCardProps) {
   const {color, title, name, number, expirationDate} = creditCard;
 
   return (
-    <View style={[styles.creditCard, {backgroundColor: color}]}>
+    <View testID="credit-card-container" 
+          style={[styles.creditCard, {backgroundColor: color}]}>
       <Text style={styles.cardTitle}>{title}</Text>
       <Text style={styles.text}>{name}</Text>
       <Text style={styles.text}>**** **** **** *{number?.slice(-3)}</Text>
