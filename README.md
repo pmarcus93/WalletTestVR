@@ -27,14 +27,14 @@ React Native / TypeScript / React Navigation / React Native Reanimated / Jest
 
 - Na raíz do projeto, instale as dependências com `npm install`.
 - Caso pretenda gerar uma build iOS, execute `pod install` no diretório `ios`.
-- Na raiz, execute `npm run react-native android` para executar o app em um emulador ou dispositivo físico Android ou `npm run react-native ios` para executar o app em um emulador ou dispositivo físico iOS.
+- Na raiz, execute `npm run android` para executar o app em um emulador ou dispositivo físico Android ou `npm run ios` para executar o app em um emulador ou dispositivo físico iOS.
 
 ### Inicie a API
 
 - Caso esteja executando o app em um emulador, execute `npm run db` na raíz do projeto.
 - Caso esteja executando o app em um dispositivo físico,
   - Conecte o computador e o dispositivo na mesma rede,
-  - Edite o arquivo `` e substitua `localhost` pelo IP da máquina na rede local onde o projeto será executado.
+  - Edite os arquivos `package.json` e `CreditCardApi` e substitua `localhost` pelo IP da máquina na rede local onde o projeto será executado.
   - Execute `npm run db`.
 
 
