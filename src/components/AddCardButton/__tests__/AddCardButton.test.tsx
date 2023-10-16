@@ -1,11 +1,6 @@
-/**
- * @format
- */
-
 import React from 'react';
-import 'react-native';
-
-import renderer from 'react-test-renderer';
+import {render} from '@testing-library/react-native';
+import AddCardButton from '..';
 
 const mockedDispatch = jest.fn();
 
@@ -20,19 +15,13 @@ jest.mock("@react-navigation/native", () => {
   };
 });
 
-import App from '../App';
-// Note: test renderer must be required after react-native.
 
-// Note: import explicitly to use the types shiped with jest.
-import {it} from '@jest/globals';
-
-describe('App', () => {
+describe('AddCardButton', () => {
   beforeEach(() => {
     mockedDispatch.mockClear();
   });
 
   it('renders correctly', () => {
-    renderer.create(<App />);
+    render(<AddCardButton />);
   });
-  
 });
