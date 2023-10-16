@@ -2,12 +2,12 @@ import React, {useEffect, useRef, useState} from 'react';
 import {
   Alert,
   Animated,
-  Button,
-  FlatList, Pressable,
+  FlatList,
+  Pressable,
   Text,
   TouchableWithoutFeedback,
-  View
-} from "react-native";
+  View,
+} from 'react-native';
 
 import styles from './styles';
 
@@ -15,8 +15,8 @@ import {getCards} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
-import { COLORS } from "@shared/defaults";
-import globalStyles from "@shared/globalStyles";
+import {COLORS} from '@shared/defaults';
+import globalStyles from '@shared/globalStyles';
 
 import AnimatedCreditCard from '@components/AnimatedCreditCard';
 import CreditCard from '@components/CreditCard';

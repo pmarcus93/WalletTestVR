@@ -140,7 +140,9 @@ function FormCard() {
       <>
         <View style={globalStyles.container}>
           <Text style={globalStyles.title}>Wallet Test</Text>
-          <Text>cartão cadastrado com sucesso!</Text>
+          <Text style={globalStyles.subtitle}>
+            cartão cadastrado com sucesso
+          </Text>
           <CreditCard creditCard={insertedCreditCard} />
 
           <Pressable
