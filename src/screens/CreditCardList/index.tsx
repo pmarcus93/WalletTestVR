@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {
+  Alert,
   Animated,
   Button,
   FlatList,
@@ -17,7 +18,8 @@ import CreditCardModel from '@models/CreditCardModel';
 import AnimatedCreditCard from '@components/AnimatedCreditCard';
 import CreditCard from '@components/CreditCard';
 
-function CreditCardList() {
+// @ts-ignore
+function CreditCardList({navigation}) {
   const [creditCards, setCreditCards] = useState<CreditCardModel[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedCreditCard, setSelectedCreditCard] = useState<CreditCardModel>(
@@ -32,8 +34,7 @@ function CreditCardList() {
     fetchData();
   }, []);
 
-  const flatListRef = useRef<FlatList | null>(null); // Define the type for flatListRef
-
+  const flatListRef = useRef<FlatList | null>(null);
   const scrollToTop = () => {
     if (flatListRef.current) {
       flatListRef.current.scrollToOffset({offset: 0, animated: true});
@@ -41,11 +42,28 @@ function CreditCardList() {
   };
 
   const fetchData = async () => {
-    setLoading(true);
-    const data: CreditCardModel[] = await getCards();
-    setCreditCards(data);
-    setSelectedCreditCard(data[0]);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const data: CreditCardModel[] = await getCards();
+      setCreditCards(data);
+      setSelectedCreditCard(data[0]);
+      setLoading(false);
+    } catch (e) {
+      Alert.alert(
+        'API Indisponível',
+        'Parece que a API com os dados do cartão de crédito não foi encontrada. ' +
+          '\nCertifique-se de executar as instruções no README.md do projeto. ' +
+          '\nVocê será redirecionado à tela inicial.',
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              navigation.navigate('Home');
+            },
+          },
+        ],
+      );
+    }
   };
 
   return (
@@ -55,13 +73,14 @@ function CreditCardList() {
       </View>
 
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        {selectedCreditCard && (
+        {selectedCreditCard && !loading && (
           <>
             <CreditCard creditCard={selectedCreditCard} />
             <Button title={'pagar com este cartão'} />
           </>
         )}
       </View>
+
       <View
         style={{
           flex: 1,
@@ -70,7 +89,7 @@ function CreditCardList() {
           marginTop: 75,
         }}>
         {loading ? (
-          <Text>Loading... </Text>
+          <Text>Carregando... </Text>
         ) : (
           <Animated.FlatList
             ref={flatListRef}
