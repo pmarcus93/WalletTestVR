@@ -8,7 +8,6 @@ import AddCardButton from '@components/AddCardButton';
 
 import CreditCardList from '@screens/CreditCardList';
 import Home from '@screens/Home';
-import SelectedCard from '@screens/SelectedCard';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,11 +35,6 @@ const CardsListing = () => {
         component={CreditCardList}
         options={{headerShown: false}}
         name="CreditCardList"
-      />
-      <Stack.Screen
-        component={SelectedCard}
-        name="SelectedCard"
-        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

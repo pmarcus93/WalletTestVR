@@ -30,6 +30,12 @@ export const Label = styled.Text`
   margin-bottom: 5px;
 `;
 
+export const ErrorLabel = styled.Text`
+  color: ${COLORS.labelError};
+  font-size: 14px;
+  margin-top: 5px;
+`;
+
 export const PressableButton = styled.Pressable`
   align-items: center;
   border-radius: 6px;

@@ -15,7 +15,11 @@ import {VALIDATION_REGEXES, getRandomColor} from '@shared/helpers';
 
 import CreditCard from '@components/CreditCard';
 import FormControlInput from '@components/FormControlInput';
-import {Subtitle, Title} from '@components/StyledComponents/StyledComponents';
+import {
+  Subtitle,
+  Title,
+  ViewGap10,
+} from '@components/StyledComponents/StyledComponents';
 
 function FormCard() {
   const {
@@ -59,7 +63,7 @@ function FormCard() {
   if (!submited) {
     return (
       <>
-        <View style={[{gap: 10}]}>
+        <ViewGap10>
           <Title>Wallet Test</Title>
           <FormControlInput
             control={control}
@@ -133,7 +137,7 @@ function FormCard() {
             }}>
             <Text style={{color: 'white', fontSize: 20}}>avançar</Text>
           </Pressable>
-        </View>
+        </ViewGap10>
       </>
     );
   } else {
