@@ -2,7 +2,8 @@ import React from 'react';
 import {ImageBackground} from 'react-native';
 const backgroundImage = require('/assets/background.png');
 import NavigationButton from '../../components/NavigationButton';
-import globalStyles from '../../shared/globalStyles';
+
+import globalStyles from '@shared/GlobalStyles';
 
 import { Container, Title, ViewGap20 } from "@components/StyledComponents/StyledComponents";
 

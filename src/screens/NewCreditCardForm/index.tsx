@@ -10,9 +10,9 @@ import {insertCard} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
-import {ERROR_MESSAGES} from '@shared/defaults';
-import globalStyles from '@shared/globalStyles';
-import {VALIDATION_REGEXES, getRandomColor} from '@shared/helpers';
+import {ERROR_MESSAGES} from '@shared/Defaults';
+import globalStyles from '@shared/GlobalStyles';
+import {VALIDATION_REGEXES, getRandomColor} from '@shared/Helpers';
 
 import CreditCard from '@components/CreditCard';
 import FormControlInput from '@components/FormControlInput';

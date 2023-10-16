@@ -1,7 +1,7 @@
 import React from 'react';
 import {ImageBackground, KeyboardAvoidingView, Platform} from 'react-native';
 
-import globalStyles from '../../shared/globalStyles';
+import globalStyles from '@shared/GlobalStyles';
 
 import NewCreditCardForm from '@screens/NewCreditCardForm';
 

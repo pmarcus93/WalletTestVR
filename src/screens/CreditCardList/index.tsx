@@ -15,8 +15,8 @@ import {getCards} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
-import {COLORS} from '@shared/defaults';
-import globalStyles from '@shared/globalStyles';
+import {COLORS} from '@shared/Defaults';
+import globalStyles from '@shared/GlobalStyles';
 
 import AnimatedCreditCard from '@components/AnimatedCreditCard';
 import CreditCard from '@components/CreditCard';

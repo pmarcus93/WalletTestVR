@@ -13,8 +13,8 @@ import {MaskedTextInput, MaskedTextInputProps} from 'react-native-mask-text';
 
 import {AutoCapitalizeOptions} from 'react-native-mask-text/lib/typescript/src/@types/AutoCapitalizeOptions';
 
-import {COLORS} from '@shared/defaults';
-import globalStyles from '@shared/globalStyles';
+import {COLORS} from '@shared/Defaults';
+import globalStyles from '@shared/GlobalStyles';
 
 import {ErrorLabel, Label} from '@components/StyledComponents/StyledComponents';
 

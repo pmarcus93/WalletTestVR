@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import {COLORS, FONTS} from '@shared/defaults';
+import {COLORS, FONTS} from '@shared/Defaults';
 
 export const Container = styled.View`
   align-items: center;
