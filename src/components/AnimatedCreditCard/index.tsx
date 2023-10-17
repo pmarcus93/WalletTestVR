@@ -13,28 +13,6 @@ import CreditCardModel from '@models/CreditCardModel';
 import CreditCard from '@components/CreditCard';
 
 const styles = StyleSheet.create({
-  creditCard: {
-    alignContent: 'center',
-    backgroundColor: '#820ad1',
-    borderRadius: 16,
-    borderWidth: 1,
-    height: 180,
-    justifyContent: 'center',
-    paddingHorizontal: 16,
-    width: 300,
-  },
-  cardTitle: {
-    color: '#ffffff',
-    fontSize: 18,
-    marginBottom: 12,
-  },
-  text: {
-    fontSize: 14,
-    color: '#ffffff',
-  },
-  container: {
-    gap: 5,
-  },
   card: {
     marginVertical: MARGIN / 2,
     alignSelf: 'center',
