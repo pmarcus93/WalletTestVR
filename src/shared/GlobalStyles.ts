@@ -27,16 +27,6 @@ const globalStyles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 3,
   },
-  label: {
-    color: COLORS.label,
-    fontSize: 14,
-    marginBottom: 5,
-  },
-  labelError: {
-    color: COLORS.labelError,
-    fontSize: 14,
-    marginTop: 5,
-  },
   rowContainer: {
     flexDirection: 'row',
     gap: 10,
