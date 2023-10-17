@@ -6,8 +6,8 @@ import NewCreditCardForm from '@screens/NewCreditCardForm';
 
 const mockedDispatch = jest.fn();
 
-jest.mock("@react-navigation/native", () => {
-  const actualNav = jest.requireActual("@react-navigation/native");
+jest.mock('@react-navigation/native', () => {
+  const actualNav = jest.requireActual('@react-navigation/native');
   return {
     ...actualNav,
     useNavigation: () => ({

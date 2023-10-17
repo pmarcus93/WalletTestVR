@@ -3,7 +3,6 @@ import {
   Alert,
   Animated,
   FlatList,
-  Pressable,
   Text,
   TouchableWithoutFeedback,
   View,
@@ -15,11 +14,15 @@ import {getCards} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
-import {COLORS} from '@shared/defaults';
-import globalStyles from '@shared/globalStyles';
+import {COLORS, ERROR_MESSAGES} from '@shared/Defaults';
 
 import AnimatedCreditCard from '@components/AnimatedCreditCard';
 import CreditCard from '@components/CreditCard';
+import CustomButton from '@components/CustomButton';
+import {
+  BottomHeader,
+  BottomHeaderText,
+} from '@components/StyledComponents/StyledComponents';
 
 // @ts-ignore
 function CreditCardList({navigation}) {
@@ -52,60 +55,37 @@ function CreditCardList({navigation}) {
       setSelectedCreditCard(data[0]);
       setLoading(false);
     } catch (e) {
-      Alert.alert(
-        'API Indisponível',
-        'Parece que a API com os dados do cartão de crédito não foi encontrada. ' +
-          '\nCertifique-se de executar as instruções no README.md do projeto. ' +
-          '\nVocê será redirecionado à tela inicial.',
-        [
-          {
-            text: 'OK',
-            onPress: () => {
-              navigation.navigate('Home');
-            },
+      Alert.alert(ERROR_MESSAGES.API.title, ERROR_MESSAGES.API.message, [
+        {
+          text: 'OK',
+          onPress: () => {
+            navigation.navigate('Home');
           },
-        ],
-      );
+        },
+      ]);
     }
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.bottomHeader}>
-        <Text style={styles.textBottomHeader}>Meus Cartões</Text>
-      </View>
+    <View style={styles.generalContainer}>
+      <BottomHeader>
+        <BottomHeaderText>Meus Cartões</BottomHeaderText>
+      </BottomHeader>
 
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 20,
-        }}>
+      <View style={styles.selectedCreditCardContainer}>
         {selectedCreditCard && !loading && (
           <>
             <CreditCard creditCard={selectedCreditCard} />
-            <Pressable
-              style={[
-                globalStyles.button,
-                {
-                  backgroundColor: COLORS.mainLightBlue,
-                },
-              ]}>
-              <Text style={{color: '#ffffff', fontSize: 18}}>
-                pagar com este cartão
-              </Text>
-            </Pressable>
+            <CustomButton
+              text={'pagar com este cartão'}
+              textColor={'#ffffff'}
+              backgroundColor={COLORS.mainLightBlue}
+            />
           </>
         )}
       </View>
 
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={styles.cardListContainer}>
         {loading ? (
           <Text>Carregando... </Text>
         ) : (

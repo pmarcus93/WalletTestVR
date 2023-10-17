@@ -8,7 +8,6 @@ import AddCardButton from '@components/AddCardButton';
 
 import CreditCardList from '@screens/CreditCardList';
 import Home from '@screens/Home';
-import SelectedCard from '@screens/SelectedCard';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,11 +35,6 @@ const CardsListing = () => {
         component={CreditCardList}
         options={{headerShown: false}}
         name="CreditCardList"
-      />
-      <Stack.Screen
-        component={SelectedCard}
-        name="SelectedCard"
-        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
@@ -71,8 +65,7 @@ function App(): JSX.Element {
           component={CardsListing}
           name="CardsListing"
           options={{
-            // eslint-disable-next-line react/no-unstable-nested-components
-            headerRight: () => <AddCardButton />,
+            headerRight: AddCardButton,
             headerTintColor: '#142995',
             headerTitle: 'Wallet Test',
             headerTitleAlign: 'center',

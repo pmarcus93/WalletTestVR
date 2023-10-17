@@ -10,12 +10,17 @@ import {insertCard} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
-import globalStyles from '@shared/globalStyles';
-import {VALIDATION_REGEXES, getRandomColor} from '@shared/helpers';
+import {ERROR_MESSAGES} from '@shared/Defaults';
+import globalStyles from '@shared/GlobalStyles';
+import {VALIDATION_REGEXES, getRandomColor} from '@shared/Helpers';
 
 import CreditCard from '@components/CreditCard';
 import FormControlInput from '@components/FormControlInput';
-import {Subtitle, Title} from '@components/StyledComponents/StyledComponents';
+import {
+  Subtitle,
+  Title,
+  ViewGap10,
+} from '@components/StyledComponents/StyledComponents';
 
 function FormCard() {
   const {
@@ -39,27 +44,21 @@ function FormCard() {
       setInsertedCreditcard(data);
       setSubmitted(true);
     } catch (e) {
-      Alert.alert(
-        'API Indisponível',
-        'Parece que a API com os dados do cartão de crédito não foi encontrada. ' +
-          '\nCertifique-se de executar as instruções no README.md do projeto. ' +
-          '\nVocê será redirecionado à tela inicial.',
-        [
-          {
-            text: 'OK',
-            onPress: () => {
-              navigate('Home');
-            },
+      Alert.alert(ERROR_MESSAGES.API.title, ERROR_MESSAGES.API.message, [
+        {
+          text: 'OK',
+          onPress: () => {
+            navigate('Home');
           },
-        ],
-      );
+        },
+      ]);
     }
   };
 
   if (!submited) {
     return (
       <>
-        <View style={[{gap: 10}]}>
+        <ViewGap10>
           <Title>Wallet Test</Title>
           <FormControlInput
             control={control}
@@ -112,7 +111,7 @@ function FormCard() {
               <FormControlInput
                 control={control}
                 errors={errors}
-                label="código de segurança"
+                label="cód. de segurança"
                 mask="999"
                 name="cvv"
                 placeholder="***"
@@ -133,7 +132,7 @@ function FormCard() {
             }}>
             <Text style={{color: 'white', fontSize: 20}}>avançar</Text>
           </Pressable>
-        </View>
+        </ViewGap10>
       </>
     );
   } else {

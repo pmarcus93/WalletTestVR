@@ -1,7 +1,5 @@
 import React from 'react';
-import {Animated, Text, View} from 'react-native';
-
-import AnimatedCreditCard from '@components/CreditCard';
+import {Text, View} from 'react-native';
 
 import styles from '@screens/CreditCardList/styles';
 

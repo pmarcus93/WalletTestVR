@@ -1,25 +1,22 @@
 import {StyleSheet} from 'react-native';
 
+import {COLORS} from '@shared/Defaults';
+
 const styles = StyleSheet.create({
-  container: {
+  generalContainer: {
     flex: 1,
-    backgroundColor: '#142995',
+    backgroundColor: COLORS.mainDarkBlue,
   },
-  bottomHeader: {
-    backgroundColor: '#ffffff',
-    borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 50,
-  },
-  textBottomHeader: {
-    alignSelf: 'center',
-    fontSize: 20,
-    padding: 20,
-    color: '#12C2E9',
-  },
-  cardsList: {
-    paddingHorizontal: 16,
+  cardListContainer: {
     flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
+  },
+  selectedCreditCardContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
   },
 });
 

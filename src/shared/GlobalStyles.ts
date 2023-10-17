@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {COLORS, FONTS} from './defaults';
+import {COLORS, FONTS} from './Defaults';
 
 const globalStyles = StyleSheet.create({
   button: {
@@ -26,16 +26,6 @@ const globalStyles = StyleSheet.create({
     borderColor: 'red',
     borderStyle: 'solid',
     borderWidth: 3,
-  },
-  label: {
-    color: COLORS.label,
-    fontSize: 14,
-    marginBottom: 5,
-  },
-  labelError: {
-    color: COLORS.labelError,
-    fontSize: 14,
-    marginTop: 5,
   },
   rowContainer: {
     flexDirection: 'row',

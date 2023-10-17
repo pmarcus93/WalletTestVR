@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {KeyboardTypeOptions, Text, View} from 'react-native';
+import {KeyboardTypeOptions, View} from 'react-native';
 import {TextInput, TextInputProps} from 'react-native';
 
 import {
@@ -13,14 +13,14 @@ import {MaskedTextInput, MaskedTextInputProps} from 'react-native-mask-text';
 
 import {AutoCapitalizeOptions} from 'react-native-mask-text/lib/typescript/src/@types/AutoCapitalizeOptions';
 
-import {COLORS} from '@shared/defaults';
-import globalStyles from '@shared/globalStyles';
+import {COLORS} from '@shared/Defaults';
+import globalStyles from '@shared/GlobalStyles';
 
-import {Label} from '@components/StyledComponents/StyledComponents';
+import {ErrorLabel, Label} from '@components/StyledComponents/StyledComponents';
 
 interface Props<T extends FieldValues> {
   autoCapitalize?: AutoCapitalizeOptions;
-  control: Control<T, any>;
+  control: Control<T>;
   errors: Partial<FieldErrors>;
   keyboardType?: KeyboardTypeOptions;
   label: string;
@@ -102,9 +102,7 @@ const FormControlInput: FC<Props<any>> = ({
           }
         }}
       />
-      {errors[name] && (
-        <Text style={globalStyles.labelError}>Campo obrigatório!</Text>
-      )}
+      {errors[name] && <ErrorLabel>Campo obrigatório!</ErrorLabel>}
     </View>
   );
 };
