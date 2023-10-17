@@ -3,7 +3,6 @@ import {
   Alert,
   Animated,
   FlatList,
-  Pressable,
   Text,
   TouchableWithoutFeedback,
   View,
@@ -16,10 +15,10 @@ import {getCards} from '@api/CreditCardApi';
 import CreditCardModel from '@models/CreditCardModel';
 
 import {COLORS} from '@shared/Defaults';
-import globalStyles from '@shared/GlobalStyles';
 
 import AnimatedCreditCard from '@components/AnimatedCreditCard';
 import CreditCard from '@components/CreditCard';
+import CustomButton from '@components/CustomButton';
 
 // @ts-ignore
 function CreditCardList({navigation}) {
@@ -85,17 +84,11 @@ function CreditCardList({navigation}) {
         {selectedCreditCard && !loading && (
           <>
             <CreditCard creditCard={selectedCreditCard} />
-            <Pressable
-              style={[
-                globalStyles.button,
-                {
-                  backgroundColor: COLORS.mainLightBlue,
-                },
-              ]}>
-              <Text style={{color: '#ffffff', fontSize: 18}}>
-                pagar com este cartão
-              </Text>
-            </Pressable>
+            <CustomButton
+              text={'pagar com este cartão'}
+              textColor={'#ffffff'}
+              backgroundColor={COLORS.mainLightBlue}
+            />
           </>
         )}
       </View>
