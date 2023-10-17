@@ -111,7 +111,7 @@ function FormCard() {
               <FormControlInput
                 control={control}
                 errors={errors}
-                label="código de segurança"
+                label="cód. de segurança"
                 mask="999"
                 name="cvv"
                 placeholder="***"
