@@ -67,18 +67,12 @@ function CreditCardList({navigation}) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.generalContainer}>
       <BottomHeader>
         <BottomHeaderText>Meus Cartões</BottomHeaderText>
       </BottomHeader>
 
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 20,
-        }}>
+      <View style={styles.selectedCreditCardContainer}>
         {selectedCreditCard && !loading && (
           <>
             <CreditCard creditCard={selectedCreditCard} />
@@ -91,12 +85,7 @@ function CreditCardList({navigation}) {
         )}
       </View>
 
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={styles.cardListContainer}>
         {loading ? (
           <Text>Carregando... </Text>
         ) : (
