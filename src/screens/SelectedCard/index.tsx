@@ -1,15 +1,20 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
+import {
+  BottomHeader,
+  BottomHeaderText,
+} from '@components/StyledComponents/StyledComponents';
+
 import styles from '@screens/CreditCardList/styles';
 
 function SelectedCard() {
   return (
     <>
-      <View style={styles.container}>
-        <View style={styles.bottomHeader}>
-          <Text style={styles.textBottomHeader}>Meus Cartões</Text>
-        </View>
+      <View style={styles.generalContainer}>
+        <BottomHeader>
+          <BottomHeaderText>Meus Cartões</BottomHeaderText>
+        </BottomHeader>
         <View
           style={{
             flex: 1,
