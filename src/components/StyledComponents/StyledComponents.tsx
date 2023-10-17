@@ -91,3 +91,16 @@ export const CreditCardView = styled.View<CreditCardViewProps>`
   padding-right: 16px;
   width: 300px;
 `;
+
+export const BottomHeader = styled.View`
+  background-color: #ffffff;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+`;
+
+export const BottomHeaderText = styled.Text`
+  align-self: center;
+  font-size: 20px;
+  padding: 20px;
+  color: #12c2e9;
+`;

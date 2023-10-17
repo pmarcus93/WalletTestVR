@@ -14,11 +14,15 @@ import {getCards} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
-import {COLORS} from '@shared/Defaults';
+import {COLORS, ERROR_MESSAGES} from '@shared/Defaults';
 
 import AnimatedCreditCard from '@components/AnimatedCreditCard';
 import CreditCard from '@components/CreditCard';
 import CustomButton from '@components/CustomButton';
+import {
+  BottomHeader,
+  BottomHeaderText,
+} from '@components/StyledComponents/StyledComponents';
 
 // @ts-ignore
 function CreditCardList({navigation}) {
@@ -51,28 +55,22 @@ function CreditCardList({navigation}) {
       setSelectedCreditCard(data[0]);
       setLoading(false);
     } catch (e) {
-      Alert.alert(
-        'API Indisponível',
-        'Parece que a API com os dados do cartão de crédito não foi encontrada. ' +
-          '\nCertifique-se de executar as instruções no README.md do projeto. ' +
-          '\nVocê será redirecionado à tela inicial.',
-        [
-          {
-            text: 'OK',
-            onPress: () => {
-              navigation.navigate('Home');
-            },
+      Alert.alert(ERROR_MESSAGES.API.title, ERROR_MESSAGES.API.message, [
+        {
+          text: 'OK',
+          onPress: () => {
+            navigation.navigate('Home');
           },
-        ],
-      );
+        },
+      ]);
     }
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.bottomHeader}>
-        <Text style={styles.textBottomHeader}>Meus Cartões</Text>
-      </View>
+      <BottomHeader>
+        <BottomHeaderText>Meus Cartões</BottomHeaderText>
+      </BottomHeader>
 
       <View
         style={{
