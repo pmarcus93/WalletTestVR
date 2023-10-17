@@ -77,9 +77,12 @@ export const CardText = styled.Text`
   color: #ffffff;
 `;
 
-export const CreditCardView = styled.View`
+interface CreditCardViewProps {
+  backgroundColor?: string;
+}
+export const CreditCardView = styled.View<CreditCardViewProps>`
   align-content: center;
-  background-color: #820ad1;
+  background-color: ${props => props.backgroundColor || '#000000'};
   border-radius: 16px;
   border-width: 1px;
   height: 180px;
