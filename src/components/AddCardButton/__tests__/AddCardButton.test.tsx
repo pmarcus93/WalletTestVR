@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {render} from '@testing-library/react-native';
-
 import AddCardButton from '@components/AddCardButton';
+
+import {render} from '@testing-library/react-native';
 
 const mockedDispatch = jest.fn();
 

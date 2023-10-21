@@ -1,12 +1,12 @@
+import React from 'react';
+import {ColorValue} from 'react-native';
+
 import {
   PressableButton,
   PressableButtonText,
 } from '@components/StyledComponents';
 
 import {useNavigation} from '@react-navigation/native';
-
-import React from 'react';
-import {ColorValue} from 'react-native';
 
 type Props = {
   text: String;
