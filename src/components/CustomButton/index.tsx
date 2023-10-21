@@ -4,7 +4,7 @@ import {ColorValue} from 'react-native';
 import {
   PressableButton,
   PressableButtonText,
-} from '@components/StyledComponents/StyledComponents';
+} from '@components/StyledComponents';
 
 type Props = {
   text: String;

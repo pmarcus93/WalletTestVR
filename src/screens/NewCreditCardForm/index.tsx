@@ -1,11 +1,3 @@
-import React, {useState} from 'react';
-import {Alert, Pressable, Text, View} from 'react-native';
-
-import {useForm} from 'react-hook-form';
-
-import {ParamListBase, useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-
 import {insertCard} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
@@ -20,7 +12,15 @@ import {
   Subtitle,
   Title,
   ViewGap10,
-} from '@components/StyledComponents/StyledComponents';
+} from '@components/StyledComponents';
+
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+import React, {useState} from 'react';
+import {Alert, Pressable, Text, View} from 'react-native';
+
+import {useForm} from 'react-hook-form';
 
 function FormCard() {
   const {
