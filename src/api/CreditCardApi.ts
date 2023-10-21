@@ -1,7 +1,5 @@
 import CreditCardModel from '@models/CreditCardModel';
 
-import {setSelectedCreditCard} from '@shared/Storage';
-
 import axios, {AxiosResponse} from 'axios';
 import {Fetcher} from 'swr';
 
@@ -9,9 +7,7 @@ export const API_URL = 'http://192.168.31.159:3000/cards';
 
 export const fetcher: Fetcher<CreditCardModel[]> = async (endpoint: string) => {
   const response = await fetch(endpoint);
-  const data = await response.json();
-  setSelectedCreditCard(data[0]);
-  return data;
+  return await response.json();
 };
 
 const API_BASE_URL: string = 'http://192.168.31.159:3000';
