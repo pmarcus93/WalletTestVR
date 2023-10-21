@@ -5,7 +5,7 @@ import NavigationButton from '../../components/NavigationButton';
 
 import globalStyles from '@shared/GlobalStyles';
 
-import { Container, Title, ViewGap20 } from "@components/StyledComponents/StyledComponents";
+import {Container, Title, ViewGap20} from '@components/StyledComponents';
 
 function Home({}) {
   return (

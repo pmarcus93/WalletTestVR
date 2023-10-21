@@ -6,7 +6,7 @@ import {
   CardText,
   CardTitle,
   CreditCardView,
-} from '@components/StyledComponents/StyledComponents';
+} from '@components/StyledComponents';
 interface CreditCardProps {
   creditCard: CreditCardModel;
 }

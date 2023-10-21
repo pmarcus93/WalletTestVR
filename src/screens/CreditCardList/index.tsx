@@ -1,16 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {
-  Alert,
-  Animated,
-  FlatList,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {Animated, FlatList, TouchableWithoutFeedback, View} from 'react-native';
 
-import styles from './styles';
-
-import {getCards} from '@api/CreditCardApi';
+import {API_URL, fetcher} from '@api/CreditCardApi';
 
 import CreditCardModel from '@models/CreditCardModel';
 
@@ -22,23 +13,21 @@ import CustomButton from '@components/CustomButton';
 import {
   BottomHeader,
   BottomHeaderText,
-} from '@components/StyledComponents/StyledComponents';
+  Subtitle,
+  Title,
+} from '@components/StyledComponents';
 
-// @ts-ignore
-function CreditCardList({navigation}) {
-  const [creditCards, setCreditCards] = useState<CreditCardModel[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [selectedCreditCard, setSelectedCreditCard] = useState<CreditCardModel>(
-    {} as CreditCardModel,
-  );
+import styles from './styles';
+import useSWR from 'swr';
+
+function CreditCardList() {
+  const [selectedCreditCard, setSelectedCreditCard] = useState<
+    CreditCardModel | undefined
+  >(undefined);
   const y = new Animated.Value(0);
   const onScroll = Animated.event([{nativeEvent: {contentOffset: {y}}}], {
     useNativeDriver: true,
   });
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const flatListRef = useRef<FlatList | null>(null);
   const scrollToTop = () => {
@@ -47,24 +36,36 @@ function CreditCardList({navigation}) {
     }
   };
 
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const data: CreditCardModel[] = await getCards();
-      setCreditCards(data);
-      setSelectedCreditCard(data[0]);
-      setLoading(false);
-    } catch (e) {
-      Alert.alert(ERROR_MESSAGES.API.title, ERROR_MESSAGES.API.message, [
-        {
-          text: 'OK',
-          onPress: () => {
-            navigation.navigate('Home');
-          },
-        },
-      ]);
-    }
-  };
+  const {data, isLoading, error} = useSWR<CreditCardModel[], Error>(
+    API_URL,
+    fetcher,
+  );
+
+  if (isLoading) {
+    return (
+      <View style={styles.generalContainer}>
+        <BottomHeader>
+          <BottomHeaderText>Meus Cartões</BottomHeaderText>
+        </BottomHeader>
+        <View>
+          <Title>Carregando...</Title>
+        </View>
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={styles.generalContainer}>
+        <BottomHeader>
+          <BottomHeaderText>Meus Cartões</BottomHeaderText>
+        </BottomHeader>
+        <View style={styles.errorMessageContainer}>
+          <Subtitle>{ERROR_MESSAGES.API.message}</Subtitle>
+        </View>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.generalContainer}>
@@ -72,8 +73,9 @@ function CreditCardList({navigation}) {
         <BottomHeaderText>Meus Cartões</BottomHeaderText>
       </BottomHeader>
 
-      <View style={styles.selectedCreditCardContainer}>
-        {selectedCreditCard && !loading && (
+      <View
+        style={selectedCreditCard ? styles.selectedCreditCardContainer : []}>
+        {selectedCreditCard && (
           <>
             <CreditCard creditCard={selectedCreditCard} />
             <CustomButton
@@ -86,30 +88,26 @@ function CreditCardList({navigation}) {
       </View>
 
       <View style={styles.cardListContainer}>
-        {loading ? (
-          <Text>Carregando... </Text>
-        ) : (
-          <Animated.FlatList
-            ref={flatListRef}
-            scrollEventThrottle={16}
-            data={creditCards}
-            renderItem={({index, item}) => (
-              <TouchableWithoutFeedback
-                onPress={() => {
-                  setSelectedCreditCard(item);
-                  scrollToTop();
-                }}>
-                <View>
-                  <AnimatedCreditCard y={y} index={index} creditCard={item} />
-                </View>
-              </TouchableWithoutFeedback>
-            )}
-            keyExtractor={item => item.id}
-            onScroll={onScroll}
-            bounces={false}
-            showsVerticalScrollIndicator={false}
-          />
-        )}
+        <Animated.FlatList
+          ref={flatListRef}
+          scrollEventThrottle={16}
+          data={data}
+          renderItem={({index, item}) => (
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setSelectedCreditCard(item);
+                scrollToTop();
+              }}>
+              <View>
+                <AnimatedCreditCard y={y} index={index} creditCard={item} />
+              </View>
+            </TouchableWithoutFeedback>
+          )}
+          keyExtractor={item => item.id}
+          onScroll={onScroll}
+          bounces={false}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </View>
   );

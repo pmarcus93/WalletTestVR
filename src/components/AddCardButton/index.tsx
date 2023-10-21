@@ -1,10 +1,10 @@
 import React from 'react';
 import {Pressable, StyleSheet, Text} from 'react-native';
 
+import {COLORS} from '@shared/Defaults';
+
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-
-import {COLORS} from '@shared/Defaults';
 
 const styles = StyleSheet.create({
   textStyles: {

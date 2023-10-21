@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {render} from '@testing-library/react-native';
-
 import CreditCardModel from '@models/CreditCardModel';
 
 import CreditCard from '@components/CreditCard';
+
+import {render} from '@testing-library/react-native';
 
 const mockedCreditCard: CreditCardModel = {
   cvv: '123',

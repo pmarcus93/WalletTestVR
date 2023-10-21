@@ -2,6 +2,11 @@ import React, {FC} from 'react';
 import {KeyboardTypeOptions, View} from 'react-native';
 import {TextInput, TextInputProps} from 'react-native';
 
+import {COLORS} from '@shared/Defaults';
+import globalStyles from '@shared/GlobalStyles';
+
+import {ErrorLabel, Label} from '@components/StyledComponents';
+
 import {
   Control,
   Controller,
@@ -10,13 +15,7 @@ import {
   ValidationRule,
 } from 'react-hook-form';
 import {MaskedTextInput, MaskedTextInputProps} from 'react-native-mask-text';
-
 import {AutoCapitalizeOptions} from 'react-native-mask-text/lib/typescript/src/@types/AutoCapitalizeOptions';
-
-import {COLORS} from '@shared/Defaults';
-import globalStyles from '@shared/GlobalStyles';
-
-import {ErrorLabel, Label} from '@components/StyledComponents/StyledComponents';
 
 interface Props<T extends FieldValues> {
   autoCapitalize?: AutoCapitalizeOptions;
