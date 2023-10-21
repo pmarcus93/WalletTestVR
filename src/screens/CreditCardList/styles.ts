@@ -18,6 +18,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 20,
   },
+  errorMessageContainer: {
+    flex: 1,
+    marginHorizontal: 16,
+    justifyContent: 'center',
+    textAlign: 'justify',
+  },
 });
 
 export default styles;
