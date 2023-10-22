@@ -48,7 +48,7 @@ function CreditCardList() {
           <BottomHeaderText>Meus Cartões</BottomHeaderText>
         </BottomHeader>
         <View>
-          <Title>Carregando...</Title>
+          <Subtitle>Carregando...</Subtitle>
         </View>
       </View>
     );
