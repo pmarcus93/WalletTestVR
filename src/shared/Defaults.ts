@@ -1,5 +1,7 @@
+import {Platform} from 'react-native';
+
 export const FONTS = {
-  fontFamily: 'PT Sans Caption',
+  fontFamily: Platform.OS === 'ios' ? 'PT Sans Caption' : 'ptsanscaption',
 };
 
 export const COLORS = {
